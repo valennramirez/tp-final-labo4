@@ -1,3 +1,5 @@
+import { Peliculas } from "./peliculas";
+
 export interface User {
     gmail: string, 
     usuario:string, 
@@ -7,7 +9,7 @@ export interface User {
     id: number, 
     cumpleaños: Date,
     genero: string, 
-    listaVer: [], 
-    listaVistos: [], 
+    listaVer: Peliculas[], 
+    listaVistos: Peliculas[], 
     fotoPerfil: string
 }

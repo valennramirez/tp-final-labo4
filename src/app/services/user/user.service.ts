@@ -21,7 +21,7 @@ export class UserService {
       const listaUsuarios = await resultado.json();
       return listaUsuarios; 
     } catch (error) {
-      alert('Error...')
+      alert('Error al levantar los usuarios')
     }
 
     return undefined; 
@@ -41,7 +41,7 @@ export class UserService {
     return undefined; 
   }
 
-   async postUsuario(usuario: User)
+   async postUsuario(usuario: User | undefined)
   {
     try{
       await fetch(this.url, 
@@ -52,7 +52,7 @@ export class UserService {
       this.router.navigate(['home'])
     } catch (error)
     {
-      console.log(error)
+      alert('error al guardar usuario')
     }
   }
 

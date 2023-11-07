@@ -1,0 +1,17 @@
+{
+  "usuarios": [
+    {
+      "gmail": "valen@gmail.com",
+      "usuario": "valennramirez",
+      "nombre": "valen",
+      "apellido": "ramirez",
+      "contraseña": "Valen456",
+      "id": 1,
+      "cumpleaños": "2023-11-03",
+      "genero": "",
+      "listaVer": null,
+      "listaVistos": null,
+      "fotoPerfil": ""
+    }
+  ]
+}

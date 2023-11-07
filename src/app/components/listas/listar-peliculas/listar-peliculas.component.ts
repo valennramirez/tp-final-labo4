@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/interfaces/user';
+import { PeliculasService } from 'src/app/services/user/peliculas.service';
 import { Peliculas } from '../../../interfaces/peliculas';
 
 @Component({
@@ -7,18 +9,24 @@ import { Peliculas } from '../../../interfaces/peliculas';
   styleUrls: ['./listar-peliculas.component.css']
 })
 export class ListarPeliculasComponent {
-
+  
   constructor  (private peliculaService: PeliculasService){} ///deberia ser del service de listas
 
   ngOnInit(): void {
-    this.mostrarPeliculas();
+    this.mostrarListaVistos();
   }
 
   listaPeliculas: Peliculas[] | undefined= []; 
+  user: User | undefined; 
 
-  async mostrarPeliculas()
+  setUser()
   {
-    this.listaPeliculas= await this.peliculaService.getPeliculas(); 
+
+  }
+
+  mostrarListaVistos()
+  {
+    this.listaPeliculas = this.user?.listaVistos; 
   }
 
 }

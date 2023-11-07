@@ -25,7 +25,10 @@ export class RegisterComponent implements OnInit{
       contraseña:['', (Validators.required, Validators.minLength(5))],
       id: [0, (Validators.required)], 
       cumpleaños: [new Date(), (Validators.required)], 
-      genero:['', (Validators.required)]
+      genero:['', (Validators.required)],
+      listaVer: [], 
+      listaVistos:[], 
+      fotoPerfil: ''
     }); 
   }
 
@@ -34,24 +37,14 @@ export class RegisterComponent implements OnInit{
               ) 
                {} 
 
-  listadoUsuarios: User[] | undefined = []; 
+  
   user!:User; 
 
-  async mostrarUsuarios()
-  {
-    this.listadoUsuarios= await this.UserService.getUsuarios(); 
-  }
-
-   guardarUsuario(){
+  guardarUsuario(){ 
     
-    this.user.gmail=this.formulario.get('gmail')?.value; 
-    this.user.apellido= this.formulario.get('apellido')?.value; 
-
-        this.UserService.postUsuario(this.user); 
-  
-      console.log("Usuario creado con exito.");
-
+    this.UserService.postUsuario(this.formulario.value); 
     
+    console.log("Usuario creado con exito.");
   }
 
 }

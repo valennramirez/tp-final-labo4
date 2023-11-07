@@ -1,149 +1,149 @@
+<fieldset class="datos">
 
-     <form method="POST"id="formulario" (submit)="guardarUsuario()" (formGroup)="formulario">
-        <fieldset class="datos">
+    <legend>Registrarse</legend>
 
-            <legend>Registrarse</legend>
+    <form id="formulario" [formGroup]="formulario">
 
-            <div class="campo">
+        <div class="campo">
 
-                <label for="gmail">
-                    Gmail: 
-                </label>
+            <label for="gmail">
+                Gmail: 
+            </label>
 
-                <input type="email" 
-                       id="gmail" 
-                       name="gmail" 
-                       formControlName="gmail" 
-                       placeHolder="ejemplo@gmail.com" 
-                       required
-                       > 
+            <input type="email" 
+                   id="gmail" 
+                   name="gmail" 
+                   formControlName="gmail" 
+                   placeHolder="ejemplo@gmail.com" 
+                   required
+                   > 
 
-                <div class="error">
-                    <span *ngIf="formulario.controls['gmail'].getError('required') && formulario.touched">
-                        El campo es requerido
-                    </span>
-                    <span *ngIf="formulario.controls['gmail'].getError('email') && formulario.touched">
-                        Debe ingresar un gmail
-                    </span>
-                </div>
+            <div class="error">
+                <span *ngIf="formulario.controls['gmail'].getError('required') && formulario.touched">
+                    El campo es requerido
+                </span>
+                <span *ngIf="formulario.controls['gmail'].getError('email') && formulario.touched">
+                    Debe ingresar un gmail
+                </span>
             </div>
-    
-            <div class="campo">
+        </div>
 
-                <label for="usuario">
-                    Usuario: 
-                </label>
+        <div class="campo">
 
-                <input type="text" 
-                       id="usuario" 
-                       name="usuario" 
-                       formControlName="usuario" 
-                       placeHolder="valennramirez22" 
-                       required
-                       >
-                <div class="error">
-                    <span *ngIf="formulario.controls['usuario'].getError('required') && formulario.touched">
-                        El campo es requerido
-                    </span>
-                </div>
+            <label for="usuario">
+                Usuario: 
+            </label>
+
+            <input type="text" 
+                   id="usuario" 
+                   name="usuario" 
+                   formControlName="usuario" 
+                   placeHolder="valennramirez22" 
+                   required
+                   >
+            <div class="error">
+                <span *ngIf="formulario.controls['usuario'].getError('required') && formulario.touched">
+                    El campo es requerido
+                </span>
             </div>
-            
-            <div class="campo">
+        </div>
+        
+        <div class="campo">
 
-                <label for="nombre">
-                    Nombre: 
-                </label>
+            <label for="nombre">
+                Nombre: 
+            </label>
 
-                <input type="text" 
-                       id="nombre" 
-                       name="nombre" 
-                       formControlName="nombre" 
-                       placeHolder="Valentina" 
-                       required
-                       >
-                <div class="error">
-                    <span *ngIf="formulario.controls['nombre'].getError('required') && formulario.touched">
-                        El campo es requerido
-                    </span>
-                </div>
+            <input type="text" 
+                   id="nombre" 
+                   name="nombre" 
+                   formControlName="nombre" 
+                   placeHolder="Valentina" 
+                   required
+                   >
+            <div class="error">
+                <span *ngIf="formulario.controls['nombre'].getError('required') && formulario.touched">
+                    El campo es requerido
+                </span>
             </div>
-    
-            <div class="campo">
+        </div>
 
-                <label for="apellido">Apellido: </label>
+        <div class="campo">
 
-                <input type="text" 
-                       id="apellido" 
-                       name="apellido" 
-                       formControlName="apellido" 
-                       placeHolder="Ramirez" 
-                       required
-                       >
-                <div class="error">
-                    <span *ngIf="formulario.controls['apellido'].getError('required') && formulario.touched">
-                        El campo es requerido
-                    </span>
-                </div>
+            <label for="apellido">Apellido: </label>
+
+            <input type="text" 
+                   id="apellido" 
+                   name="apellido" 
+                   formControlName="apellido" 
+                   placeHolder="Ramirez" 
+                   required
+                   >
+            <div class="error">
+                <span *ngIf="formulario.controls['apellido'].getError('required') && formulario.touched">
+                    El campo es requerido
+                </span>
             </div>
+        </div>
 
-            <div class="campo">
+        <div class="campo">
 
-                <label for="contraseña">Contraseña: </label>
+            <label for="contraseña">Contraseña: </label>
 
-                <input type="password" 
-                       id="contraseña" 
-                       name="contraseña" 
-                       formControlName="contraseña" 
-                       placeHolder="amoLasPelis222" 
-                       required
-                       > 
-                <div class="error">
-                    <span *ngIf="formulario.controls['contraseña'].getError('required') && formulario.touched">
-                        El campo es requerido
-                    </span>
-                    <span *ngIf="formulario.controls['contraseña'].getError('minlength') && formulario.touched">
-                        La contraseña debe tener al menos 5 caracteres 
-                    </span>
-                </div>
+            <input type="password" 
+                   id="contraseña" 
+                   name="contraseña" 
+                   formControlName="contraseña" 
+                   placeHolder="amoLasPelis222" 
+                   required
+                   > 
+            <div class="error">
+                <span *ngIf="formulario.controls['contraseña'].getError('required') && formulario.touched">
+                    El campo es requerido
+                </span>
+                <span *ngIf="formulario.controls['contraseña'].getError('minlength') && formulario.touched">
+                    La contraseña debe tener al menos 5 caracteres 
+                </span>
             </div>
+        </div>
 
-    
-            <div class="campo">
-                <label for="cumpleaños">Fecha de cumpleaños: </label>
-                <input type="date" 
-                       id="cumpleaños" 
-                       name="cumpleaños"
-                       formControlName="cumpleaños"
-                       required
-                       > 
-                <div class="error">
-                    <span *ngIf="formulario.controls['cumpleaños'].getError('required') && formulario.touched">
-                        El campo es requerido
-                    </span>
-                </div>
-            </div>
-    
-            
-            <div class="campo"> 
-                <label for="genero">Genero: </label>
-                <input type="radio" 
-                       id="g-femenino" 
-                       name="g-femenino" 
-                       value="Femenino"
-                       required
-                       >  
-    
-            </div>
 
-            <div class="campo">
-                <input type="hidden"
-                       id="id"
-                       name="id"
-                       formControlName="id"
-                >
+        <div class="campo">
+            <label for="cumpleaños">Fecha de cumpleaños: </label>
+            <input type="date" 
+                   id="cumpleaños" 
+                   name="cumpleaños"
+                   formControlName="cumpleaños"
+                   required
+                   > 
+            <div class="error">
+                <span *ngIf="formulario.controls['cumpleaños'].getError('required') && formulario.touched">
+                    El campo es requerido
+                </span>
             </div>
-    
-            <input type="submit" value="Registrarse" id="registrar">
-       
-        </fieldset>
+        </div>
+
+        
+        <div class="campo"> 
+            <label for="genero">Genero: </label>
+            <input type="radio" 
+                   id="g-femenino" 
+                   name="g-femenino" 
+                   value="Femenino"
+                   required
+                   >  
+
+        </div>
+
+        <div class="campo">
+            <input type="hidden"
+                   id="id"
+                   name="id"
+                   formControlName="id"
+            >
+        </div>
+
+        <input type="submit" value="Registrarse" id="registrar" (click)="guardarUsuario()">
+   
     </form>
+</fieldset>

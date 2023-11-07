@@ -20,6 +20,7 @@ import { ListasPageComponent } from './pages/listas-page/listas-page.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { VisualizarInfoPeliculaComponent } from './components/peliculas/visualizar-info-pelicula/visualizar-info-pelicula.component';
 import { VisualizarMiUsuarioComponent } from './components/usuarios/visualizar-mi-usuario/visualizar-mi-usuario.component';
+import { BusquedaPeliculasComponent } from './components/peliculas/busqueda-peliculas/busqueda-peliculas.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { VisualizarMiUsuarioComponent } from './components/usuarios/visualizar-m
     ListasPageComponent,
     SidebarComponent,
     VisualizarInfoPeliculaComponent,
-    VisualizarMiUsuarioComponent
+    VisualizarMiUsuarioComponent,
+    BusquedaPeliculasComponent
   ],
   imports: [
     BrowserModule,

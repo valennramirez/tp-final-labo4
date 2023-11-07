@@ -18,6 +18,7 @@ export class LoginFormComponent implements OnInit {
     {} 
   ngOnInit(): void {
     this.initLogin(); 
+    this.getUsuarios();
   }
 
   public usuarioDatos={
@@ -49,7 +50,7 @@ export class LoginFormComponent implements OnInit {
     this.usuarioDatos.contraseña= this.formulario.get('contraseña')?.value;
 
     this.user= this.listadoUsuarios?.find((e) => { 
-      e.usuario == this.usuarioDatos.usuario
+      return e.usuario == this.usuarioDatos.usuario
     }); 
     
     if(this.user)
