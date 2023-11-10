@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+
 
 import { LoginFormComponent } from './components/usuarios/login-form/login-form.component';
 import { RegisterComponent } from './components/usuarios/register/register.component';
@@ -21,6 +23,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { VisualizarInfoPeliculaComponent } from './components/peliculas/visualizar-info-pelicula/visualizar-info-pelicula.component';
 import { VisualizarMiUsuarioComponent } from './components/usuarios/visualizar-mi-usuario/visualizar-mi-usuario.component';
 import { BusquedaPeliculasComponent } from './components/peliculas/busqueda-peliculas/busqueda-peliculas.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { VisualizarResultadoBusquedaComponent } from './components/peliculas/visualizar-resultado-busqueda/visualizar-resultado-busqueda.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +44,16 @@ import { BusquedaPeliculasComponent } from './components/peliculas/busqueda-peli
     SidebarComponent,
     VisualizarInfoPeliculaComponent,
     VisualizarMiUsuarioComponent,
-    BusquedaPeliculasComponent
+    BusquedaPeliculasComponent,
+    InicioComponent,
+    VisualizarResultadoBusquedaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+
     ReactiveFormsModule
   ],
   providers: [],

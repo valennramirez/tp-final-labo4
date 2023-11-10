@@ -27,7 +27,7 @@ export class EditarClientesComponent implements OnInit{
 
   constructor (private formBuilder: FormBuilder, 
                private UserService: UserService,
-               private router:ActivatedRoute,
+               private router:ActivatedRoute, 
                private route: Router
               ) 
                {} 

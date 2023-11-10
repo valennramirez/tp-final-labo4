@@ -9,6 +9,8 @@ import { RegisterComponent } from './components/usuarios/register/register.compo
 import { RegisterPagesComponent } from './pages/register-pages/register-pages.component';
 import { EditarPageComponent } from './pages/editar-page/editar-page.component';
 import { VisualizarMiUsuarioComponent } from './components/usuarios/visualizar-mi-usuario/visualizar-mi-usuario.component';
+import { VisualizarInfoPeliculaPageComponent } from './pages/visualizar-info-pelicula-page/visualizar-info-pelicula-page.component';
+import { VisualizarInfoPeliculaComponent } from './components/peliculas/visualizar-info-pelicula/visualizar-info-pelicula.component';
 
 const routes: Routes = [
   {path: 'home', component:HomePagesComponent},
@@ -16,8 +18,9 @@ const routes: Routes = [
   {path:'registrarse', component:RegisterPagesComponent},
   {path:'editar/:id', component:EditarPageComponent},
   {path:'visualizarUsuario', component: VisualizarMiUsuarioComponent},
+  {path:'pelicula/:id', component:VisualizarInfoPeliculaComponent}
 
-  {path: '**', redirectTo:'home'}
+  ,{path: '**', redirectTo:'home'}
 ];
 
 @NgModule({

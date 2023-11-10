@@ -1,0 +1,14 @@
+<section class="inicio" data-bs-ride="carousel">
+    <div class="listadopeliculas_genero">
+        <h1>PELICULAS</h1>
+        <ng-container class="carousel-item active" data-bs-interval="10000" 
+        *ngFor="let item of pelicula">
+            <h2>Accion</h2>
+            <h5>{{item.title}}</h5>
+            <img id="poster-1" [routerLink]="['/pelicula', item.id]" src="https://image.tmdb.org/t/p/w500// {{item.poster_path}}" alt="">
+        </ng-container>
+        <div class="listado_genero">
+            <h2>Romance</h2>
+        </div>
+    </div>
+</section>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-visualizar-mi-usuario',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisualizarMiUsuarioComponent implements OnInit {
 
-  constructor() { }
+  user:User | any; 
+
+  constructor(private router: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  visualizarUsuario()
+  {
+    this.router.params.subscribe((async param =>{
+      const id=param['id']; 
+      this.user= await this.userService.getUsuario(id); }))
   }
 
 }

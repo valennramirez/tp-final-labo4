@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { PeliculasService } from 'src/app/services/user/peliculas.service';
+import { PeliculasService } from 'src/app/services/api-service/peliculas-service/peliculas.service';
 
 @Component({
   selector: 'app-busqueda-peliculas',
@@ -13,7 +13,10 @@ export class BusquedaPeliculasComponent implements OnInit {
               private formBuilder: FormBuilder) { }
 
   formulario!: FormGroup; 
-  pelicula: undefined; 
+  pelicula: undefined;
+  
+  listadoPeliculas: any; 
+  listadoSeries: any; 
 
   ngOnInit(): void {
     this.initBusqueda(); 
@@ -26,9 +29,16 @@ export class BusquedaPeliculasComponent implements OnInit {
     })
   }
 
-  buscarPorPalabra(palabra:string)
+  async buscarPelicula()
   {
-    
+    this.listadoPeliculas = await this.peliculaService.getPelicula_PorPalabra(this.formulario.get('titulo')!.value); 
   }
+
+  async buscarSerie()
+  {
+
+  }
+
+
 
 }

@@ -1,19 +1,18 @@
-<section class="visualizar-usuario">
+<section class="visualizar-usuario" *ngFor="let i of user">
     <div class="fotoPerfil">
-        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="foto de perfil">
+        <img src="{{i.fotoPerfil}}" alt="foto de perfil">
           <div class="editarPerfil">
-        <button><a href="" [routerLink]="['/editar']">Editar</a></button>
+        <button><a href="" [routerLink]="['/editar', i.id]">Editar</a></button>
     </div>
 
     </div>
 
     <div class="nombreUsuario">
-        <h1>usuario___</h1>
+        <h1>{{i.usuario}}</h1>
     </div>
 
     <div class="descripcion">
-        <p>amo la facu
-            lalalala
+        <p>
         </p>
     </div>
   

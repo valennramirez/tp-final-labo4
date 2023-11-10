@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
-import { PeliculasService } from 'src/app/services/user/peliculas.service';
 import { Peliculas } from '../../../interfaces/peliculas';
+import { PeliculasService } from 'src/app/services/api-service/peliculas-service/peliculas.service';
 
 @Component({
   selector: 'app-listar-peliculas',
@@ -18,11 +18,6 @@ export class ListarPeliculasComponent {
 
   listaPeliculas: Peliculas[] | undefined= []; 
   user: User | undefined; 
-
-  setUser()
-  {
-
-  }
 
   mostrarListaVistos()
   {
