@@ -27,7 +27,7 @@ export class InicioComponent implements OnInit {
   listadoDrama: any=[]; 
   listadoMisterio: any=[]; 
 
-  pelicula:any; 
+  pelicula:any;
 
 
   //agregar las listas de peliculas que devuelve cada get del service 
@@ -47,10 +47,19 @@ export class InicioComponent implements OnInit {
 
     this.listadoMisterio= await this.peliculaService.getPeliculas_GeneroMisterio(); 
     
-    
-    this.pelicula= await this.peliculaService.getPelicula_PorId('50319'); 
+    this.pelicula= await this.peliculaService.getPelicula_PorId('31237'); 
     
     console.log(this.pelicula); 
+  }
+
+  recorrerListado(listado:any[], direccion:number, posicion:number){
+    if(direccion== 1 && posicion < listado.length){
+      return listado[posicion+1];
+    }else if(direccion == -1 && posicion > 0){
+      return listado[posicion-1];
+    }
+  
+
   }
 
   setListado_DOM()

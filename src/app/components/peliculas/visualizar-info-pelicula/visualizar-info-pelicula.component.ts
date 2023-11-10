@@ -36,8 +36,23 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
       const id=param['id']; 
       this.pelicula= await this.peliculaService.getPelicula_PorId(id); 
 
+      console.log(this.pelicula);
+
       this.setDatosPelicula_DOM();
   }))
+  }
+
+  concatenarGenero(generos:[] ){
+    let genre = "";
+    generos.forEach((genero:any) => {
+      genre += genero.name +", ";
+    });
+
+    genre=genre.substring(0, genre.length - 2);
+    genre += ".";
+
+    return genre;
+
   }
 
   setDatosPelicula_DOM(){
@@ -51,7 +66,7 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
       sinopsis!.textContent=this.pelicula.overview;
 
       const genero= document.querySelector('#genero'); //hay mas de un genero, habria que hacer una funcion para unirlos
-      genero!.textContent=this.pelicula.genres[0].name;
+      genero!.textContent=this.concatenarGenero(this.pelicula.genres);
 
 
       const duracion= document.querySelector('#duracion');

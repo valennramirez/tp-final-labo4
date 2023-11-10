@@ -14,7 +14,7 @@ export class PeliculasService {
   
   //API KEY 
 
-  api_key: string= '?api_key=be83012a3b3f4f591240034020b0d76e'; 
+  api_key: string= '?api_key=be83012a3b3f4f591240034020b0d76e&language=es-ES'; 
 
   //URL PARA LAS PELICULAS
 
@@ -170,7 +170,7 @@ export class PeliculasService {
     }
   }
 
-  async getPeliculas_SeriesTrendingDay () : Promise <undefined>
+  async getPeliculas_SeriesTrendingDay ()
   {
     try{
       const resultado=await fetch ("https://api.themoviedb.org/3/trending/all/day" + this.api_key);
