@@ -1,9 +1,0 @@
-<section class="resultado">
-    <div class="contenedor">
-        <h2>Resultados</h2>
-        <div *ngFor="let item of listadoBusqueda.results" class="pelicula">
-            <h4>{{item.title}}</h4>
-            <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
-        </div>
-    </div>
-</section> 
