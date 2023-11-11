@@ -26,6 +26,8 @@ import { BusquedaPeliculasComponent } from './components/peliculas/busqueda-peli
 import { InicioComponent } from './components/inicio/inicio.component';
 import { VisualizarResultadoBusquedaComponent } from './components/peliculas/visualizar-resultado-busqueda/visualizar-resultado-busqueda.component';
 
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +55,7 @@ import { VisualizarResultadoBusquedaComponent } from './components/peliculas/vis
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    SlickCarouselModule,
 
     ReactiveFormsModule
   ],
