@@ -1,0 +1,26 @@
+<section class="visualizar-usuario" *ngFor="let i of user">
+    <div class="fotoPerfil">
+        <img src="{{i.fotoPerfil}}" alt="foto de perfil">
+          <div class="editarPerfil">
+        <button><a href="" [routerLink]="['/editar', i.id]">Editar</a></button>
+    </div>
+
+    </div>
+
+    <div class="nombreUsuario">
+        <h1>{{i.usuario}} aaaaaaaa</h1>
+    </div>
+
+    <div class="descripcion">
+        <p>
+        </p>
+    </div>
+  
+        <div class="listaVer">
+            <input type="submit"  value="Peliculas que quiero ver">
+        </div>
+        <div class="listaVisto">
+            <input type="submit"  value="Peliculas que ya vi">        
+        </div>
+   
+</section>
