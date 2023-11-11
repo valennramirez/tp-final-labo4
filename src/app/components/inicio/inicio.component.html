@@ -1,0 +1,146 @@
+<section class="peliculas" >
+    <div class="contenedor">
+
+        <div>
+            <h3>Trending hoy</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoTrendingDay.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Trending esta semana</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoTrendingWeek.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+
+        <div>
+            <h3>Accion</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoAccion.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Romance</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoRomance.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Drama</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoDrama.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Misterio</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoMisterio.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Ciencia Ficcion</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoCienciaFiccion.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Adventura</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoAdventura.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Thriller</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoThriller.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Familiar</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoFamiliar.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Horror</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoHorror.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Fantasia</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoFantasia.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Animacion</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoAnimacion.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
+            <h3>Documental</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoDocumental.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+    </div>
+</section>
