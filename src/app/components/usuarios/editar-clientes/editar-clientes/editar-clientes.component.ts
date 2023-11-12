@@ -26,22 +26,22 @@ export class EditarClientesComponent implements OnInit{
   
 
   constructor (private formBuilder: FormBuilder, 
-               private UserService: UserService,
+               private userService: UserService,
                private router:ActivatedRoute, 
                private route: Router
               ) 
                {} 
 
-  async ngOnInit(){
-    await this.initEditar(); 
+  ngOnInit(){
+     this.initEditar(); 
   }
 
-  async initEditar(){
+  initEditar(){
     this.router.params.subscribe((async param =>{
       
       const id=+param['id']; 
 
-      this.user= await this.getUsuario(id); 
+      this.getUsuario(id); 
 
       this.formulario=this.formBuilder.group({
         gmail: [this.user.gmail],
@@ -59,8 +59,14 @@ export class EditarClientesComponent implements OnInit{
 
   async getUsuario(id: number)
   {
-    const usuario: User= await this.UserService.getUsuario(id);
-    return usuario; 
+    this.userService.getUsuarioHttp(id).subscribe({
+      next: (us) =>{
+        this.user = us; 
+      },
+      error: (err) =>{
+        console.log(err); 
+      }
+    })
   }
 
 
@@ -68,18 +74,18 @@ export class EditarClientesComponent implements OnInit{
     if(this.formulario.invalid) 
       return; 
 
-      this.user.apellido=this.formulario.get('apellido')!.value; 
-      this.user.nombre=this.formulario.get("nombre")!.value; 
-      this.user.usuario=this.formulario.get("usuario")!.value; 
-      this.user.gmail=this.formulario.get("gmail")!.value; 
-      this.user.contraseña=this.formulario.get("contraseña")!.value; 
-      this.user.id=this.formulario.get("id")!.value; 
-      this.user.cumpleaños=this.formulario.get("cumpleaños")!.value; 
-      this.user.genero=this.formulario.get("genero")!.value; 
+      this.user=this.formulario.value; 
     
 
-   await this.UserService.putUsuario(this.user);
-   this.route.navigate(['home']); 
+   this.userService.putUsuarioHttp(this.user).subscribe({
+    next: (us) =>{
+      alert("Usuario editado con exito"); 
+      this.route.navigate(['home']); 
+    }, 
+    error: (err)=>{
+      console.log(err); 
+    }
+   })
 }
 
 }

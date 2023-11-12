@@ -29,12 +29,19 @@ export class BusquedaPeliculasComponent implements OnInit {
     })
   }
 
-  async buscarPelicula()
+  buscarPelicula()
   {
-    this.listadoPeliculas = await this.peliculaService.getPelicula_PorPalabra(this.formulario.get('titulo')!.value); 
+    this.peliculaService.getPeliculas_PorPalabraHttp(this.formulario.get('titulo')!.value).subscribe({
+      next: (pe) => {
+        this.listadoPeliculas= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
   }
 
-  async buscarSerie()
+  buscarSerie()
   {
 
   }

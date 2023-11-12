@@ -4,9 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-
-
-import { LoginFormComponent } from './components/usuarios/login-form/login-form.component';
 import { RegisterComponent } from './components/usuarios/register/register.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomePagesComponent } from './pages/home-pages/home-pages.component';
@@ -27,11 +24,13 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { VisualizarResultadoBusquedaComponent } from './components/peliculas/visualizar-resultado-busqueda/visualizar-resultado-busqueda.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { PrivateComponent } from './components/private/private.component';
+import { LoginComponent } from './components/usuarios/login/login.component';
+import { PrivatePageComponent } from './pages/private-page/private-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent,
     RegisterComponent,
     NavbarComponent,
     HomePagesComponent,
@@ -48,7 +47,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     VisualizarMiUsuarioComponent,
     BusquedaPeliculasComponent,
     InicioComponent,
-    VisualizarResultadoBusquedaComponent
+    VisualizarResultadoBusquedaComponent,
+    PrivateComponent,
+    LoginComponent,
+    PrivatePageComponent
   ],
   imports: [
     BrowserModule,

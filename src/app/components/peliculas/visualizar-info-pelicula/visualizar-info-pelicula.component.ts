@@ -16,31 +16,36 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
                 private router: ActivatedRoute,
                 private userService: UserService){} 
 
-  ngOnInit(): void {
-    this.mostrarPelicula();
+  ngOnInit() {
+
+    this.setPelicula(); 
+ 
   }
 
-  listadoPeliculas: any=[]; 
-  pelicula:any; 
+  pelicula:any=[]; 
+
+  id:string=''; 
 
   user: User | any; 
 
-  async mostrarPelicula()
-  {
-    this.setPelicula(); 
+  setPelicula(){
+    this.router.params.subscribe(
+      param => {
+        const id =param['id']; 
+
+        this.peliculaService.getPelicula_PorIdHttp(id).subscribe({
+          next: (peli) => {
+            this.pelicula= peli; 
+            this.setDatosPelicula_DOM(); 
+          }, 
+          error: (err)=>{
+            console.log(err); 
+          }
+        })
+      }
+    )
   }
 
-  setPelicula()
-  {
-    this.router.params.subscribe((async param =>{
-      const id=param['id']; 
-      this.pelicula= await this.peliculaService.getPelicula_PorId(id); 
-
-      console.log(this.pelicula);
-
-      this.setDatosPelicula_DOM();
-  }))
-  }
 
   concatenarGenero(generos:[] ){
     let genre = "";
@@ -52,7 +57,18 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
     genre += ".";
 
     return genre;
+  }
 
+  concatenarIdiomas(idiomas:[] ){
+    let idiomasA = "";
+    idiomas.forEach((idiomas:any) => {
+      idiomasA += idiomas.english_name +", ";
+    });
+
+    idiomasA=idiomasA.substring(0, idiomasA.length - 2);
+    idiomasA += ".";
+
+    return idiomasA; 
   }
 
   setDatosPelicula_DOM(){
@@ -65,19 +81,22 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
       const sinopsis=document.querySelector('#sinopsis'); 
       sinopsis!.textContent=this.pelicula.overview;
 
+      const productora = document.querySelector('#productora'); 
+      productora!.textContent=this.pelicula.production_companies[0].name; 
+
       const genero= document.querySelector('#genero'); //hay mas de un genero, habria que hacer una funcion para unirlos
       genero!.textContent=this.concatenarGenero(this.pelicula.genres);
 
 
       const duracion= document.querySelector('#duracion');
-      duracion!.textContent=`${this.pelicula.runtime} mins`; 
+      duracion!.textContent=`${this.pelicula.runtime} minutos`; 
 
       const fechaLanzamiento= document.querySelector('#lanzamiento');
       fechaLanzamiento!.textContent=this.pelicula.release_date; 
 
 
       const idioma= document.querySelector('#idioma');
-      idioma!.textContent=this.pelicula.spoken_languages[0].english_name; 
+      idioma!.textContent= this.concatenarIdiomas(this.pelicula.spoken_languages);  
   
       const ratings=document.querySelector('#ratings'); 
       ratings!.textContent=this.pelicula.vote_average + ' / 10';
@@ -86,7 +105,14 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
   guardarEnLista(){
     this.user?.listaVer.push(this.pelicula.id);
     
-    this.userService.putUsuario(this.user); 
+    this.userService.putUsuarioHttp(this.user).subscribe({
+      next: (pe) => {
+        alert(pe + "guardada con exito");  
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
   }
   
 }

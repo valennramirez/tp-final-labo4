@@ -41,10 +41,19 @@ export class RegisterComponent implements OnInit{
   user!:User; 
 
   guardarUsuario(){ 
+
+    this.user=this.formulario.value; 
     
-    this.UserService.postUsuario(this.formulario.value); 
-    
-    console.log("Usuario creado con exito.");
+    this.UserService.postUsuarioHttp(this.user).subscribe(
+      {
+        next: (cli) =>{
+          alert("El usuario " + cli.usuario + " fue creado con exito"); 
+        }, 
+        error: (err)=>{
+          console.log(err); 
+        }
+      }
+    )
   }
 
 }

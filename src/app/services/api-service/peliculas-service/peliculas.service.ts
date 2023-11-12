@@ -22,229 +22,106 @@ export class PeliculasService {
 
   urlSearchPelicula: string="https://api.themoviedb.org/3/search/movie";
 
-  constructor(private router: Router) {}; 
+  constructor(private http: HttpClient) {}; 
 
-  async getPeliculas ()
-  {
-    try {
-      const resultado= await fetch(this.urlBasePelicula); 
-      const listaPeliculas = await resultado.json();
-      return listaPeliculas 
-    } catch (error) {
-      alert('Error al levantar las peliculas')
-    }
-  }
 
   //GET DE PELICULAS POR --id, palabra, titulo, similitud
 
-  async getPelicula_PorPalabra(ingreso: string)
+  getPeliculas_PorPalabraHttp (ingreso:string): Observable<any[]>
   {
-    try {
-      const resultado= await fetch(`${this.urlSearchPelicula}${this.api_key}&query=${ingreso}`); 
-      const listaPeliculas = await resultado.json();
-      return listaPeliculas ;
-    } catch (error) {
-      alert('No se encontraron peliculas con las palabras ingresadas')
-    }
+    return this.http.get<any[]>(`${this.urlSearchPelicula}${this.api_key}&query=${ingreso}`); 
   }
 
-  async getPelicula_PorId (id:string){
-    try{
-      const resultado=await fetch (`${this.urlBasePelicula}${id}${this.api_key}`);
-      const pelicula=await resultado.json(); 
-      return pelicula; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPelicula_Similares (id:string){
-    try{
-      const resultado=await fetch (`${this.urlSearchPelicula}${id}/similar${this.api_key}`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroAccion()
+  getPelicula_PorIdHttp (id:string) : Observable<any[]>
   {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=28`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
+    return this.http.get<any[]>(`${this.urlBasePelicula}${id}${this.api_key}`);
   }
 
-  async getPeliculas_GeneroComedia()
-  { 
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=16`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroRomance()
+  getPeliculas_SimilaresHttp (id:string): Observable<any[]>
   {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=10749`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroDrama()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=18`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroHorror()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=27`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroFantasia()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=14`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroCienciaFiccion()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=878`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-
-  async getPeliculas_GeneroMisterio()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres= 9648`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroAdventura()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=12`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroCrimen()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=80`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroDocumental()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres= 99`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroFamiliar()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=10751`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroThriller()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=53`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
-  }
-
-  async getPeliculas_GeneroAnimacion()
-  {
-    try{
-      const resultado=await fetch (`${this.urlBase}/discover/movie${this.api_key}&with_genres=16`);
-      const listadoSerie=await resultado.json(); 
-      return listadoSerie; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
+    return this.http.get<any[]>(`${this.urlSearchPelicula}${id}/similar${this.api_key}`); 
   }
   
-
-  //GET DE PELICULAS Y SERIES TRENDING DEL DIA/SEMANA 
-  async getPeliculas_SeriesTrendingWeek ()
+  getPeliculas_GeneroAccionHttp(): Observable<any[]>
   {
-    try{
-      const resultado=await fetch ("https://api.themoviedb.org/3/trending/all/week" + this.api_key);
-      const listadoTrending=await resultado.json(); 
-      return listadoTrending; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=28`); 
   }
 
-  async getPeliculas_SeriesTrendingDay ()
+  getPeliculas_GeneroComediaHttp(): Observable<any[]>
   {
-    try{
-      const resultado=await fetch ("https://api.themoviedb.org/3/trending/all/day" + this.api_key);
-      const listadoTrending=await resultado.json(); 
-      return listadoTrending; 
-    } catch (error){
-      alert('No se pudo encontrar peliculas trending');
-    }
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=16`); 
+  }
+
+  getPeliculas_GeneroRomanceHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=10749`); 
+  }
+
+  getPeliculas_GeneroDramaHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=18`); 
+  }
+
+  getPeliculas_GeneroHorrorHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=27`); 
+  }
+
+  getPeliculas_GeneroFantasiaHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=14`); 
+  }
+
+  getPeliculas_GeneroCienciaFiccionHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=878`); 
+  }
+
+  getPeliculas_GeneroMisterioHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=9648`); 
+  }
+
+  getPeliculas_GeneroAdventuraHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=12`); 
+  }
+
+  getPeliculas_GeneroCrimenHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=80`); 
+  }
+
+  getPeliculas_GeneroDocumentalHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=99`); 
+  }
+
+  getPeliculas_GeneroFamiliarHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=10751`); 
+  }
+
+  getPeliculas_GeneroThrillerHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=53`); 
+  }
+
+  getPeliculas_GeneroAnimacionHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=16`); 
+  }
+
+  //GET DE PELICULAS Y SERIES TRENDING DEL DIA/SEMANA 
+
+  getPeliculas_TrendingWeekHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>("https://api.themoviedb.org/3/trending/movie/week" + this.api_key); 
+  }
+
+  getPeliculas_TrendingDayHttp(): Observable<any[]>
+  {
+    return this.http.get<any[]>("https://api.themoviedb.org/3/trending/movie/day" + this.api_key); 
   }
 
 }

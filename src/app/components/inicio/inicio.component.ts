@@ -53,7 +53,7 @@ export class InicioComponent implements OnInit {
   listadoMisterio: any=[]; 
   listadoComedia: any=[]; 
   listadoFantasia:any=[];
-  listadoHorror:any=[];
+  listadoHorror:any=[]; 
   listadoFamiliar:any=[];
   listadoThriller:any=[];
   listadoAdventura:any=[];
@@ -62,37 +62,151 @@ export class InicioComponent implements OnInit {
   listadoAnimacion:any=[]; 
 
   //agregar las listas de peliculas que devuelve cada get del service 
-  async setListados(){
+  setListados(){
 
-    this.listadoTrendingDay= await this.peliculaService.getPeliculas_SeriesTrendingDay(); 
+    this.peliculaService.getPeliculas_GeneroAccionHttp().subscribe({
+      next: (pe) => {
+        this.listadoAccion= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoTrendingWeek= await this.peliculaService.getPeliculas_SeriesTrendingWeek(); 
+    this.peliculaService.getPeliculas_GeneroRomanceHttp().subscribe({
+      next: (pe) => {
+        this.listadoRomance= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoAccion= await this.peliculaService.getPeliculas_GeneroAccion(); 
+    this.peliculaService.getPeliculas_GeneroCienciaFiccionHttp().subscribe({
+      next: (pe) => {
+        this.listadoCienciaFiccion= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoRomance= await this.peliculaService.getPeliculas_GeneroRomance();
+    this.peliculaService.getPeliculas_GeneroDramaHttp().subscribe({
+      next: (pe) => {
+        this.listadoDrama= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoCienciaFiccion= await this.peliculaService.getPeliculas_GeneroCienciaFiccion();
+    this.peliculaService.getPeliculas_GeneroMisterioHttp().subscribe({
+      next: (pe) => {
+        this.listadoMisterio= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoDrama= await this.peliculaService.getPeliculas_GeneroDrama(); 
+    this.peliculaService.getPeliculas_GeneroComediaHttp().subscribe({
+      next: (pe) => {
+        this.listadoComedia= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoMisterio= await this.peliculaService.getPeliculas_GeneroMisterio(); 
-    
-    this.listadoAdventura= await this.peliculaService.getPeliculas_GeneroAdventura();
+    this.peliculaService.getPeliculas_GeneroFantasiaHttp().subscribe({
+      next: (pe) => {
+        this.listadoFantasia= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoCrimen= await this.peliculaService.getPeliculas_GeneroCrimen(); 
+    this.peliculaService.getPeliculas_GeneroHorrorHttp().subscribe({
+      next: (pe) => {
+        this.listadoHorror= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoDocumental= await this.peliculaService.getPeliculas_GeneroDocumental(); 
+    this.peliculaService.getPeliculas_GeneroFamiliarHttp().subscribe({
+      next: (pe) => {
+        this.listadoFamiliar= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoFamiliar= await this.peliculaService.getPeliculas_GeneroFamiliar(); 
+    this.peliculaService.getPeliculas_GeneroThrillerHttp().subscribe({
+      next: (pe) => {
+        this.listadoThriller= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoThriller= await this.peliculaService.getPeliculas_GeneroThriller(); 
+    this.peliculaService.getPeliculas_GeneroAdventuraHttp().subscribe({
+      next: (pe) => {
+        this.listadoAdventura= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoFantasia= await this.peliculaService.getPeliculas_GeneroFantasia();
+    this.peliculaService.getPeliculas_GeneroCrimenHttp().subscribe({
+      next: (pe) => {
+        this.listadoCrimen= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoAnimacion= await this.peliculaService.getPeliculas_GeneroAnimacion(); 
+    this.peliculaService.getPeliculas_GeneroDocumentalHttp().subscribe({
+      next: (pe) => {
+        this.listadoDocumental= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
 
-    this.listadoHorror= await this.peliculaService.getPeliculas_GeneroHorror();
+    this.peliculaService.getPeliculas_GeneroAnimacionHttp().subscribe({
+      next: (pe) => {
+        this.listadoAnimacion= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
+
+    this.peliculaService.getPeliculas_TrendingDayHttp().subscribe({
+      next: (pe) => {
+        this.listadoTrendingDay= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
+
+    this.peliculaService.getPeliculas_TrendingWeekHttp().subscribe({
+      next: (pe) => {
+        this.listadoTrendingWeek= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
   }
 
 }

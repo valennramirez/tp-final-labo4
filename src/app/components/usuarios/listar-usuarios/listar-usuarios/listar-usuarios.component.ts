@@ -16,16 +16,32 @@ export class ListarUsuariosComponent implements OnInit{
   }
 ;
 
-  listaUsuarios: User[] | undefined=[]; 
+  listadoUsuarios: User[] | undefined=[]; 
 
 
-  async mostrarUsuarios()
+  mostrarUsuarios()
   {
-    this.listaUsuarios= await this.userService.getUsuarios(); 
+    this.userService.getUsuariosHttp().subscribe({
+      next: (us) =>{
+        this.listadoUsuarios = us; 
+      },
+      error: (err) =>{
+        console.log(err); 
+      }
+    })
   }
 
-  async eliminarUsuario(id : number){
-    await this.userService.deleteUsuario(id); 
+  eliminarUsuario(id: number)
+  {
+    this.userService.deleteUsuarioHttp(id).subscribe({
+      next: (us) =>{
+        alert("El usuario " + us.usuario + " ha sido eliminado"); 
+      }, 
+      error: (err) =>
+      {
+        console.log(err);
+      }
+    })
   }
   
 

@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
 
 
@@ -8,11 +10,50 @@ import { User } from 'src/app/interfaces/user';
 })
 export class UserService {
 
-   url: string = "http://localhost:4000/usuarios"; 
+  private url: string = "http://localhost:4000/usuarios"; 
+  private user?: User; 
 
-  constructor(private router: Router) {}; 
+  constructor(private router: Router,
+              private http: HttpClient) {}; 
 
 
+  getUsuariosHttp (): Observable<User[]>
+  {
+    return this.http.get<User[]>(this.url); 
+  }
+
+  getUsuarioHttp(id: number): Observable<User>
+  {
+    return this.http.get<User>(`${this.url}/${id}`); 
+  }
+
+  verificarUsuarioHttp() 
+  {
+
+  }
+
+  deleteUsuarioHttp(id: number): Observable<User>
+  {
+    return this.http.delete<User>(`${this.url}/${id}`); 
+  }
+
+  postUsuarioHttp(usuario: User): Observable<User>
+  {
+    return this.http.post<User>(
+      `${this.url}/${usuario.id}`,
+      usuario, 
+      {headers: {'Content-type': 'application/json'}}); 
+  }
+
+  putUsuarioHttp(usuario: User): Observable<User>
+  {
+    return this.http.post<User>(
+      `${this.url}/${usuario.id}`,
+      usuario, 
+      {headers: {'Content-type': 'application/json'}}); 
+  }
+
+  /*
   async getUsuarios(): Promise <User[] | undefined>
   {
 
@@ -26,7 +67,6 @@ export class UserService {
 
     return undefined; 
   }
-
   async getUsuario(id: number)
   {
 
@@ -67,7 +107,6 @@ export class UserService {
       alert ("El usuario no ha podido ser borrado "); 
     }
   }
-
   async putUsuario(usuario: User)
   {
     try{
@@ -81,5 +120,5 @@ export class UserService {
     {
       console.log(error)
     }
-}
+}*/
 }

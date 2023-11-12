@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomePagesComponent } from './pages/home-pages/home-pages.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { LoginFormComponent } from './components/usuarios/login-form/login-form.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { RegisterComponent } from './components/usuarios/register/register.component';
 import { RegisterPagesComponent } from './pages/register-pages/register-pages.component';
@@ -13,15 +12,23 @@ import { VisualizarInfoPeliculaPageComponent } from './pages/visualizar-info-pel
 import { VisualizarInfoPeliculaComponent } from './components/peliculas/visualizar-info-pelicula/visualizar-info-pelicula.component';
 import { PerfilUsuarioPageComponent } from './pages/perfil-usuario-page/perfil-usuario-page.component';
 import { VisualizarResultadoBusquedaComponent } from './components/peliculas/visualizar-resultado-busqueda/visualizar-resultado-busqueda.component';
+import { PrivateComponent } from './components/private/private.component';
+import { AutGuard } from './guards/aut-guard';
+import { LoginGuard } from './guards/login-guard';
+
+
 
 const routes: Routes = [
   {path: 'home', component:HomePagesComponent},
-  {path: 'login', component: LoginPageComponent},
   {path:'registrarse', component:RegisterPagesComponent},
-  {path:'editar/:id', component:EditarPageComponent},
+  {path:'editar/:id', component:EditarPageComponent, canActivate: [AutGuard]},
   {path:'pelicula/:id', component:VisualizarInfoPeliculaComponent},
-  {path:'perfil/:id', component:VisualizarMiUsuarioComponent},
-  {path:'busqueda', component:VisualizarResultadoBusquedaComponent}
+  {path:'perfil/:id', component:VisualizarMiUsuarioComponent, canActivate: [AutGuard]},
+  {path:'busqueda', component:VisualizarResultadoBusquedaComponent}, 
+
+
+  {path: 'login', component: LoginPageComponent, canActivate:[LoginGuard]},
+  {path:'private', component:PrivateComponent, canActivate: [AutGuard]}
 
   ,{path: '**', redirectTo:'home'}
 ];

@@ -15,9 +15,17 @@ export class VisualizarResultadoBusquedaComponent implements OnInit{
 
   listadoBusqueda: any=[]; 
 
-  async resultadoBusqueda(ingreso: string)
+  resultadoBusqueda(ingreso: string)
   {
-    this.listadoBusqueda= await this.peliculaService.getPelicula_PorPalabra(ingreso); 
+    this.peliculaService.getPeliculas_PorPalabraHttp(ingreso).subscribe({
+      next: (pe) => {
+        this.listadoBusqueda= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
+    
     console.log(this.listadoBusqueda); 
   }
  
