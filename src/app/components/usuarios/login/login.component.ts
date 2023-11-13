@@ -41,6 +41,5 @@ export class LoginComponent implements OnInit {
   iniciarSesion ()
   {
     this.autService.verificarUsuarioContraseña(this.formulario.get('usuario')?.value, this.formulario.get('contraseña')?.value);
-    this.route.navigate(['/home']); 
   }
 }

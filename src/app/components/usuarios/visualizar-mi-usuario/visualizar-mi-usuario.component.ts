@@ -19,7 +19,7 @@ export class VisualizarMiUsuarioComponent implements OnInit {
     this.visualizarUsuario(); 
   }
 
-  get getUser():User | undefined{
+  get getUser():User {
     return this.autService.currentUser;
   }
 

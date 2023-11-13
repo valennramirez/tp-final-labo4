@@ -12,9 +12,10 @@ import { VisualizarInfoPeliculaPageComponent } from './pages/visualizar-info-pel
 import { VisualizarInfoPeliculaComponent } from './components/peliculas/visualizar-info-pelicula/visualizar-info-pelicula.component';
 import { PerfilUsuarioPageComponent } from './pages/perfil-usuario-page/perfil-usuario-page.component';
 import { VisualizarResultadoBusquedaComponent } from './components/peliculas/visualizar-resultado-busqueda/visualizar-resultado-busqueda.component';
-import { PrivateComponent } from './components/private/private.component';
 import { AutGuard } from './guards/aut-guard';
 import { LoginGuard } from './guards/login-guard';
+import { PrivatePageComponent } from './pages/private-page/private-page.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 
 
@@ -28,7 +29,7 @@ const routes: Routes = [
 
 
   {path: 'login', component: LoginPageComponent, canActivate:[LoginGuard]},
-  {path:'private', component:PrivateComponent, canActivate: [AutGuard]}
+  {path:'private', component:PrivatePageComponent, canActivate: [AutGuard]}
 
   ,{path: '**', redirectTo:'home'}
 ];

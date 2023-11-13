@@ -2,16 +2,81 @@
   "usuarios": [
     {
       "gmail": "valen@gmail.com",
-      "usuario": "valen",
+      "usuario": "valennramirez22",
       "nombre": "valen",
       "apellido": "ramirez",
-      "contraseña": "223444",
+      "contraseña": "Valen345",
       "cumpleaños": "2023-11-06T16:12:25.126Z",
       "genero": "femenino",
       "id": 1,
       "listaVer": [],
       "listaVistos": [],
       "fotoPerfil": ""
+    },
+    {
+      "gmail": "valentina@gmail.com",
+      "usuario": "valenRamirez333",
+      "nombre": "Valentina",
+      "apellido": "Ramirez",
+      "contraseña": "Valen345",
+      "id": 2,
+      "cumpleaños": "2023-11-09",
+      "genero": "femenino",
+      "listaVer": null,
+      "listaVistos": null,
+      "fotoPerfil": ""
+    },
+    {
+      "gmail": "valennnnnnnnnnnnnnnnnnnnnnnn@gmail.com",
+      "usuario": "valennramirez22",
+      "nombre": "valentina",
+      "apellido": " ramirez",
+      "contraseña": "Valen333",
+      "id": 3,
+      "cumpleaños": "2023-11-02",
+      "genero": "femenino",
+      "listaVer": null,
+      "listaVistos": null,
+      "fotoPerfil": ""
+    },
+    {
+      "gmail": "valennnnnnnnnnnnnnnnnnnnnnnn@gmail.com",
+      "usuario": "valen",
+      "nombre": "Valentina",
+      "apellido": "Ramirez",
+      "contraseña": "sssssssssss",
+      "id": 4,
+      "cumpleaños": "2023-11-03",
+      "genero": "femenino",
+      "listaVer": null,
+      "listaVistos": null,
+      "fotoPerfil": ""
+    },
+    {
+      "gmail": "valennramirez22@gmail.com",
+      "usuario": "ultrazul",
+      "nombre": "valentina",
+      "apellido": "ramirez",
+      "contraseña": "Valen345",
+      "id": 5,
+      "cumpleaños": "2023-11-01",
+      "genero": "femenino",
+      "listaVer": null,
+      "listaVistos": null,
+      "fotoPerfil": ""
+    },
+    {
+      "gmail": "valentinaramirez@gmail.com",
+      "usuario": "ultra_",
+      "nombre": "valen",
+      "apellido": "ramirez",
+      "contraseña": "Valen345",
+      "id": 6,
+      "cumpleaños": "2023-11-03",
+      "genero": "femenino",
+      "listaVer": null,
+      "listaVistos": null,
+      "fotoPerfil": "https://guitar.com/wp-content/uploads/2020/08/Alex-Turner-Photo-FilmMagic-FilmMagic@1400x1050.jpg"
     }
   ]
 }

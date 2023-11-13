@@ -12,14 +12,12 @@ export class AutService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  private url: string = "http://localhost:4000/usuarios"; 
+  private url: string = "http://localhost:4500/usuarios"; 
   
-  private user?:User; 
+  user?:User; 
 
-  get currentUser(): User | undefined
-  { 
-    if(!this.user) return undefined; 
-
+  get currentUser(): User | any
+  {
     return structuredClone(this.user); 
   }
 
@@ -36,7 +34,7 @@ export class AutService {
         {
           this.user= u; 
           localStorage.setItem('token', u.id.toString()); 
-          this.router.navigate(['/home']);
+          this.router.navigate(['/private']);
         }
       });
     });

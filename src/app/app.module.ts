@@ -24,9 +24,9 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { VisualizarResultadoBusquedaComponent } from './components/peliculas/visualizar-resultado-busqueda/visualizar-resultado-busqueda.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { PrivateComponent } from './components/private/private.component';
 import { LoginComponent } from './components/usuarios/login/login.component';
 import { PrivatePageComponent } from './pages/private-page/private-page.component';
+import { NavbarPrivateComponent } from './shared/navbar-private/navbar-private.component';
 
 @NgModule({
   declarations: [
@@ -48,9 +48,9 @@ import { PrivatePageComponent } from './pages/private-page/private-page.componen
     BusquedaPeliculasComponent,
     InicioComponent,
     VisualizarResultadoBusquedaComponent,
-    PrivateComponent,
     LoginComponent,
-    PrivatePageComponent
+    PrivatePageComponent,
+    NavbarPrivateComponent
   ],
   imports: [
     BrowserModule,

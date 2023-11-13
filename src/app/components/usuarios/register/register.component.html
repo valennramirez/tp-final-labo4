@@ -126,12 +126,12 @@
         
         <div class="campo"> 
             <label for="genero">Genero: </label>
-            <input type="radio" 
-                   id="g-femenino" 
-                   name="g-femenino" 
-                   value="Femenino"
-                   required
-                   >  
+            <input list="opciones-genero" id="genero" formControlName="genero">
+            <datalist id="opciones-genero">
+                <option value="femenino"></option>
+                <option value="masculino"></option>
+                <option value="otro"></option>
+            </datalist>
 
         </div>
 
@@ -142,6 +142,23 @@
                    formControlName="id"
             >
         </div>
+
+        <div class="campo">
+            <input type="hidden"
+                   id="listaVer"
+                   name="listaVer"
+                   formControlName="listaVer"
+            >
+        </div>
+
+        <div class="campo">
+            <input type="hidden"
+                   id="listaVistos"
+                   name="listaVistos"
+                   formControlName="listaVistos"
+            >
+        </div>
+        
 
         <input type="submit" value="Registrarse" id="registrar" (click)="guardarUsuario()">
    

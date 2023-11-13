@@ -1,0 +1,8 @@
+<header>
+    <nav class="navegacion" >
+        <a routerLink="home">Inicio</a>
+        <a (click)="cerrarSesion()">Cerrar Sesion</a>
+        <a routerLink="/perfil/{{getUser.id}}">Ver usuario</a>
+        <a [routerLink]="['/pelicula', 50619]">ver peli</a>
+    </nav>
+</header>

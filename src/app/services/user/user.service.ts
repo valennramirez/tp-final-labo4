@@ -10,8 +10,7 @@ import { User } from 'src/app/interfaces/user';
 })
 export class UserService {
 
-  private url: string = "http://localhost:4000/usuarios"; 
-  private user?: User; 
+  url: string = "http://localhost:4500/usuarios"; 
 
   constructor(private router: Router,
               private http: HttpClient) {}; 
@@ -27,11 +26,6 @@ export class UserService {
     return this.http.get<User>(`${this.url}/${id}`); 
   }
 
-  verificarUsuarioHttp() 
-  {
-
-  }
-
   deleteUsuarioHttp(id: number): Observable<User>
   {
     return this.http.delete<User>(`${this.url}/${id}`); 
@@ -40,9 +34,10 @@ export class UserService {
   postUsuarioHttp(usuario: User): Observable<User>
   {
     return this.http.post<User>(
-      `${this.url}/${usuario.id}`,
+      this.url,
       usuario, 
-      {headers: {'Content-type': 'application/json'}}); 
+      {headers: {'Content-type': 'application/json'}}
+      ); 
   }
 
   putUsuarioHttp(usuario: User): Observable<User>

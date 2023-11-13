@@ -12,9 +12,7 @@ export class BusquedaPeliculasComponent implements OnInit {
   constructor(private peliculaService:PeliculasService,
               private formBuilder: FormBuilder) { }
 
-  formulario!: FormGroup; 
-  pelicula: undefined;
-  
+  formulario!: FormGroup;   
   listadoPeliculas: any; 
   listadoSeries: any; 
 

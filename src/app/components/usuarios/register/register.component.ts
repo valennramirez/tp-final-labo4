@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Peliculas } from 'src/app/interfaces/peliculas';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -30,30 +32,35 @@ export class RegisterComponent implements OnInit{
       listaVistos:[], 
       fotoPerfil: ''
     }); 
+
+    console.log(this.formulario.get('genero')!.value); 
   }
 
   constructor (private formBuilder: FormBuilder, 
-               private UserService: UserService
+               private UserService: UserService,
+               private router: Router
               ) 
                {} 
 
+  user?: User | undefined; 
   
-  user!:User; 
 
   guardarUsuario(){ 
-
-    this.user=this.formulario.value; 
     
-    this.UserService.postUsuarioHttp(this.user).subscribe(
-      {
-        next: (cli) =>{
-          alert("El usuario " + cli.usuario + " fue creado con exito"); 
-        }, 
-        error: (err)=>{
-          console.log(err); 
+    if(this.formulario.invalid) return
+
+    this.UserService.postUsuarioHttp(this.formulario.value)
+      .subscribe(
+        {
+          next:(us) => {
+            alert(`Usuario: ${us.usuario}`);
+            this.router.navigate(['/private'])
+          },
+          error: (err)=>{
+            console.log(err)
+          }
         }
-      }
-    )
+      )
   }
 
 }
