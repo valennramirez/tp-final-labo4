@@ -10,7 +10,7 @@ import { User } from 'src/app/interfaces/user';
 })
 export class UserService {
 
-  url: string = "http://localhost:4500/usuarios"; 
+  url: string = "http://localhost:4000/usuarios"; 
 
   constructor(private router: Router,
               private http: HttpClient) {}; 
@@ -42,8 +42,8 @@ export class UserService {
 
   putUsuarioHttp(usuario: User): Observable<User>
   {
-    return this.http.post<User>(
-      `${this.url}/${usuario.id}`,
+    return this.http.put<User>(
+      `${this.url}/${usuario!.id}`,
       usuario, 
       {headers: {'Content-type': 'application/json'}}); 
   }

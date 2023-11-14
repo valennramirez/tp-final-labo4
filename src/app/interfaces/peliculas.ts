@@ -1,3 +1,3 @@
 export interface Peliculas{
-    id: string
+    id: string 
 }

@@ -16,6 +16,11 @@ export class NavbarPrivateComponent implements OnInit {
     this.user!=this.getUser; 
   }
 
+  setRouterLink()
+  {
+    const routerLink= document.querySelector('#usuario'); 
+    routerLink?.setAttribute('routerLink', '/perfil/{{this.user.id}}'); 
+  }
   user!:User; 
 
   get getUser()

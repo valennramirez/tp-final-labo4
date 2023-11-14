@@ -19,7 +19,6 @@ import { ListasPageComponent } from './pages/listas-page/listas-page.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { VisualizarInfoPeliculaComponent } from './components/peliculas/visualizar-info-pelicula/visualizar-info-pelicula.component';
 import { VisualizarMiUsuarioComponent } from './components/usuarios/visualizar-mi-usuario/visualizar-mi-usuario.component';
-import { BusquedaPeliculasComponent } from './components/peliculas/busqueda-peliculas/busqueda-peliculas.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { VisualizarResultadoBusquedaComponent } from './components/peliculas/visualizar-resultado-busqueda/visualizar-resultado-busqueda.component';
 
@@ -27,6 +26,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { LoginComponent } from './components/usuarios/login/login.component';
 import { PrivatePageComponent } from './pages/private-page/private-page.component';
 import { NavbarPrivateComponent } from './shared/navbar-private/navbar-private.component';
+import { BuscadorComponent } from './shared/buscador/buscador.component';
+import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.component';
 
 @NgModule({
   declarations: [
@@ -45,12 +46,13 @@ import { NavbarPrivateComponent } from './shared/navbar-private/navbar-private.c
     SidebarComponent,
     VisualizarInfoPeliculaComponent,
     VisualizarMiUsuarioComponent,
-    BusquedaPeliculasComponent,
     InicioComponent,
     VisualizarResultadoBusquedaComponent,
     LoginComponent,
     PrivatePageComponent,
-    NavbarPrivateComponent
+    NavbarPrivateComponent,
+    BuscadorComponent,
+    BusquedaPageComponent
   ],
   imports: [
     BrowserModule,

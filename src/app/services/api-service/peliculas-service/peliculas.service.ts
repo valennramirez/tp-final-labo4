@@ -41,6 +41,11 @@ export class PeliculasService {
   {
     return this.http.get<any[]>(`${this.urlSearchPelicula}${id}/similar${this.api_key}`); 
   }
+
+  getPeliculas_PorPalabrayAñoHttp (ingreso:string, año:string): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlSearchPelicula}${this.api_key}&query=${ingreso}&primary_release_year=${año}`); 
+  }
   
   getPeliculas_GeneroAccionHttp(): Observable<any[]>
   {
@@ -112,7 +117,7 @@ export class PeliculasService {
     return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=16`); 
   }
 
-  //GET DE PELICULAS Y SERIES TRENDING DEL DIA/SEMANA 
+  //GET DE PELICULAS TRENDING DEL DIA/SEMANA
 
   getPeliculas_TrendingWeekHttp(): Observable<any[]>
   {
@@ -122,6 +127,13 @@ export class PeliculasService {
   getPeliculas_TrendingDayHttp(): Observable<any[]>
   {
     return this.http.get<any[]>("https://api.themoviedb.org/3/trending/movie/day" + this.api_key); 
+  }
+
+  //GET MEJORES PUNTUADOS 
+
+  getPeliculas_MejorPuntuacion(): Observable<any[]>
+  {
+    return this.http.get<any[]>("https://api.themoviedb.org/3/movie/top_rated" + this.api_key); 
   }
 
 }

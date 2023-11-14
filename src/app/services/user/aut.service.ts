@@ -12,12 +12,13 @@ export class AutService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  private url: string = "http://localhost:4500/usuarios"; 
+  private url: string = "http://localhost:4000/usuarios"; 
   
   user?:User; 
 
-  get currentUser(): User | any
+  get currentUser(): User | undefined
   {
+    if (!this.user) return undefined
     return structuredClone(this.user); 
   }
 

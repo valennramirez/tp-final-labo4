@@ -60,6 +60,7 @@ export class InicioComponent implements OnInit {
   listadoCrimen:any=[];
   listadoDocumental:any=[];
   listadoAnimacion:any=[]; 
+  listadoMejoresPuntuados:any=[]; 
 
   //agregar las listas de peliculas que devuelve cada get del service 
   setListados(){
@@ -202,6 +203,15 @@ export class InicioComponent implements OnInit {
     this.peliculaService.getPeliculas_TrendingWeekHttp().subscribe({
       next: (pe) => {
         this.listadoTrendingWeek= pe; 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
+
+    this.peliculaService.getPeliculas_MejorPuntuacion().subscribe({
+      next: (pe) => {
+        this.listadoMejoresPuntuados= pe; 
       }, 
       error: (err)=>{
         console.log(err); 

@@ -2,6 +2,16 @@
     <div class="contenedor">
 
         <div>
+            <h3>Top Rated</h3>
+            <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let item of listadoMejoresPuntuados.results" class="listado">
+                <img id="portada" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+                <h4 id="titulo">{{item.title}}</h4>
+            </div>
+            </ngx-slick-carousel>
+        </div>
+
+        <div>
             <h3>Trending hoy</h3>
             <ngx-slick-carousel class="slider-peliculas" #slickModal="slick-carousel" [config]="slideConfig">
             <div ngxSlickItem *ngFor="let item of listadoTrendingDay.results" class="listado">

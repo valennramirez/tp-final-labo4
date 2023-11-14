@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Peliculas } from 'src/app/interfaces/peliculas';
 import { User } from 'src/app/interfaces/user';
 import { PeliculasService } from 'src/app/services/api-service/peliculas-service/peliculas.service';
+import { AutService } from 'src/app/services/user/aut.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -14,26 +15,53 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
 
   constructor  (private peliculaService: PeliculasService, 
                 private router: ActivatedRoute,
-                private userService: UserService){} 
+                private userService: UserService, 
+                private autService: AutService){} 
 
   ngOnInit() {
 
+    this.getIngreso(); 
     this.setPelicula(); 
- 
   }
-
-  pelicula:any=[]; 
+ 
+  pelicula:any; 
 
   id:string=''; 
 
-  user: User | any; 
+  user: User={
+    gmail: this.getUser?.gmail, 
+    usuario:this.getUser!.usuario, 
+    nombre: this.getUser!.nombre, 
+    apellido: this.getUser!.apellido, 
+    contraseña:this.getUser!.contraseña,
+    id: this.getUser!.id, 
+    cumpleaños: this.getUser!.cumpleaños,
+    genero: this.getUser!.genero, 
+    listaVer:this.getUser!.listaVer, 
+    listaVistos: this.getUser!.listaVistos, 
+    fotoPerfil: this.getUser!.fotoPerfil
+  }; 
+
+  listaVer: Peliculas[]=[]; 
+
+  get getUser():User | any {
+    return this.autService.currentUser;
+  }
+
+  getIngreso() 
+  {
+    this.router.params.subscribe( param => 
+      {
+        this.id=param['id']; 
+        
+      })
+  }
 
   setPelicula(){
-    this.router.params.subscribe(
-      param => {
-        const id =param['id']; 
+    
 
-        this.peliculaService.getPelicula_PorIdHttp(id).subscribe({
+    console.log(this.id);
+        this.peliculaService.getPelicula_PorIdHttp(this.id).subscribe({
           next: (peli) => {
             this.pelicula= peli; 
             this.setDatosPelicula_DOM(); 
@@ -42,8 +70,7 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
             console.log(err); 
           }
         })
-      }
-    )
+  
   }
 
 
@@ -102,10 +129,20 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
       ratings!.textContent=this.pelicula.vote_average + ' / 10';
   }
 
-  guardarEnLista(){
-    this.user?.listaVer.push(this.pelicula.id);
+  guardar()
+  {
+     const peli: Peliculas={
+      id: this.id
+    }
+
+    this.user.listaVer.push(peli); 
     
-    this.userService.putUsuarioHttp(this.user).subscribe({
+  }
+
+  guardarEnLista(){
+    
+    this.guardar(); 
+    this.userService.putUsuarioHttp(this.user!).subscribe({
       next: (pe) => {
         alert(pe + "guardada con exito");  
       }, 

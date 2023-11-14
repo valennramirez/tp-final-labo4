@@ -25,7 +25,7 @@ const routes: Routes = [
   {path:'editar/:id', component:EditarPageComponent, canActivate: [AutGuard]},
   {path:'pelicula/:id', component:VisualizarInfoPeliculaComponent},
   {path:'perfil/:id', component:VisualizarMiUsuarioComponent, canActivate: [AutGuard]},
-  {path:'busqueda', component:VisualizarResultadoBusquedaComponent}, 
+  {path:'busqueda/:ingreso', component:VisualizarResultadoBusquedaComponent}, 
 
 
   {path: 'login', component: LoginPageComponent, canActivate:[LoginGuard]},
