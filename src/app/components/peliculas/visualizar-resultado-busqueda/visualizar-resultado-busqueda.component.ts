@@ -28,7 +28,7 @@ export class VisualizarResultadoBusquedaComponent implements OnInit{
   initBusqueda()
   {
     this.formulario=this.formBuilder.group({
-      año: ''
+      anio: ''
     })
   }
 
@@ -59,6 +59,7 @@ export class VisualizarResultadoBusquedaComponent implements OnInit{
       next: (pe) => {
         this.listadoBusqueda= pe; 
         console.log(this.listadoBusqueda);
+        console.log(this.formulario.get('anio')!.value)
       }, 
       error: (err)=>{
         console.log(err); 

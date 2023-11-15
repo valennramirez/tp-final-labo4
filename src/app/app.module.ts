@@ -21,6 +21,7 @@ import { VisualizarInfoPeliculaComponent } from './components/peliculas/visualiz
 import { VisualizarMiUsuarioComponent } from './components/usuarios/visualizar-mi-usuario/visualizar-mi-usuario.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { VisualizarResultadoBusquedaComponent } from './components/peliculas/visualizar-resultado-busqueda/visualizar-resultado-busqueda.component';
+import { ListarPeliculasComponent } from './components/listas/listar-peliculas/listar-peliculas.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { LoginComponent } from './components/usuarios/login/login.component';
@@ -52,7 +53,8 @@ import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.compo
     PrivatePageComponent,
     NavbarPrivateComponent,
     BuscadorComponent,
-    BusquedaPageComponent
+    BusquedaPageComponent, 
+    ListarPeliculasComponent
   ],
   imports: [
     BrowserModule,

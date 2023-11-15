@@ -39,7 +39,7 @@ export class PeliculasService {
 
   getPeliculas_SimilaresHttp (id:string): Observable<any[]>
   {
-    return this.http.get<any[]>(`${this.urlSearchPelicula}${id}/similar${this.api_key}`); 
+    return this.http.get<any[]>(`${this.urlBasePelicula}/${id}/similar${this.api_key}`); 
   }
 
   getPeliculas_PorPalabrayAñoHttp (ingreso:string, año:string): Observable<any[]>

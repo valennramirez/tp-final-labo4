@@ -1,92 +1,116 @@
 {
   "usuarios": [
     {
-      "gmail": "valen@gmail.com",
-      "usuario": "valennramirez22",
-      "nombre": "valen",
-      "apellido": "ramirez",
-      "contraseña": "Valen345",
-      "cumpleaños": "2023-11-06T16:12:25.126Z",
-      "genero": "femenino",
-      "id": 1,
-      "listaVer": [],
-      "listaVistos": [],
-      "fotoPerfil": ""
-    },
-    {
       "gmail": "valentina@gmail.com",
-      "usuario": "valenRamirez333",
-      "nombre": "Valentina",
-      "apellido": "Ramirez",
-      "contraseña": "Valen345",
-      "id": 2,
-      "cumpleaños": "2023-11-09",
-      "genero": "femenino",
-      "listaVer": null,
-      "listaVistos": null,
-      "fotoPerfil": ""
-    },
-    {
-      "gmail": "valennnnnnnnnnnnnnnnnnnnnnnn@gmail.com",
       "usuario": "valennramirez22",
-      "nombre": "valentina",
-      "apellido": " ramirez",
-      "contraseña": "Valen333",
-      "id": 3,
-      "cumpleaños": "2023-11-02",
-      "genero": "femenino",
-      "listaVer": null,
-      "listaVistos": null,
-      "fotoPerfil": ""
-    },
-    {
-      "gmail": "valennnnnnnnnnnnnnnnnnnnnnnn@gmail.com",
-      "usuario": "valen",
       "nombre": "Valentina",
       "apellido": "Ramirez",
-      "contraseña": "sssssssssss",
-      "id": 4,
-      "cumpleaños": "2023-11-03",
-      "genero": "femenino",
-      "listaVer": null,
-      "listaVistos": null,
-      "fotoPerfil": ""
-    },
-    {
-      "gmail": "valennramirez22@gmail.com",
-      "usuario": "ultrazul",
-      "nombre": "valentina",
-      "apellido": "ramirez",
       "contraseña": "Valen345",
-      "id": 5,
-      "cumpleaños": "2023-11-01",
-      "genero": "femenino",
-      "listaVer": null,
-      "listaVistos": null,
-      "fotoPerfil": ""
-    },
-    {
-      "gmail": "valentinaramirez@gmail.com",
-      "usuario": "ultra_",
-      "nombre": "valen",
-      "apellido": "ramirez",
-      "contraseña": "Valen345",
-      "id": 6,
-      "cumpleaños": "2023-11-03",
+      "id": 1,
+      "cumpleaños": "2023-11-02",
       "genero": "femenino",
       "listaVer": [
         {
-          "id": "278"
+          "id": "238",
+          "poster_path": "/ApiEfzSkrqS4m1L5a2GwWXzIiAs.jpg",
+          "title": "El padrino"
         },
         {
-          "id": "278"
+          "id": "872585",
+          "poster_path": "/ncKCQVXgk4BcQV6XbvesgZ2zLvZ.jpg",
+          "title": "Oppenheimer"
         },
         {
-          "id": "238"
+          "id": "447277",
+          "poster_path": "/mdszPVnIY7cWgbgJ8zbwu1PiU5V.jpg",
+          "title": "La sirenita"
+        },
+        {
+          "id": "9381",
+          "poster_path": "/3IBB0Z2dZAWZNkRq6hF9pJsmMtE.jpg",
+          "title": "Babylon A.D."
+        },
+        {
+          "id": "80271",
+          "poster_path": "/9i1NeeYzI3ZrGbFDZ2MwDd80G6b.jpg",
+          "title": "LOL"
+        },
+        {
+          "id": "240",
+          "poster_path": "/mbry0W5PRylSUHsYzdiY2FSJwze.jpg",
+          "title": "El padrino. Parte II"
+        },
+        {
+          "id": "80271",
+          "poster_path": "/9i1NeeYzI3ZrGbFDZ2MwDd80G6b.jpg",
+          "title": "LOL"
         }
       ],
       "listaVistos": [],
-      "fotoPerfil": "https://guitar.com/wp-content/uploads/2020/08/Alex-Turner-Photo-FilmMagic-FilmMagic@1400x1050.jpg"
+      "fotoPerfil": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png"
+    },
+    {
+      "gmail": "ramirez@gmail.com",
+      "usuario": "ultra_",
+      "nombre": "valentina",
+      "apellido": " ramirez",
+      "contraseña": "hola123",
+      "id": 2,
+      "cumpleaños": "2023-10-31",
+      "genero": "femenino",
+      "listaVer": [],
+      "listaVistos": [],
+      "fotoPerfil": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png"
+    },
+    {
+      "gmail": "val@gmail.com",
+      "usuario": "ultra__",
+      "nombre": "Valentina",
+      "apellido": "Ramirez",
+      "contraseña": "valen222",
+      "id": 3,
+      "cumpleaños": "2023-11-01",
+      "genero": "masculino",
+      "listaVer": [],
+      "listaVistos": [],
+      "fotoPerfil": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png"
+    },
+    {
+      "gmail": "cata@gmail.com",
+      "usuario": "cata1",
+      "nombre": "cata",
+      "apellido": "cataa",
+      "contraseña": "hola123",
+      "id": 4,
+      "cumpleaños": "2023-11-02",
+      "genero": "otro",
+      "listaVer": [],
+      "listaVistos": [],
+      "fotoPerfil": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png"
+    },
+    {
+      "gmail": "cata@gmail.com",
+      "usuario": "catacata",
+      "nombre": "cata",
+      "apellido": "cata",
+      "contraseña": "catacata",
+      "id": 5,
+      "cumpleaños": "2023-11-16",
+      "genero": "otro",
+      "listaVer": [
+        {
+          "id": "155",
+          "poster_path": "/8QDQExnfNFOtabLDKqfDQuHDsIg.jpg",
+          "title": "El caballero oscuro"
+        },
+        {
+          "id": "50619",
+          "poster_path": "/27WlKKz9f3vMr6JvSf0LDBVdtaZ.jpg",
+          "title": "La saga Crepúsculo:  Amanecer - Parte 1"
+        }
+      ],
+      "listaVistos": [],
+      "fotoPerfil": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png"
     }
   ]
 }

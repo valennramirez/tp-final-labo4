@@ -45,6 +45,9 @@
                 <span *ngIf="formulario.controls['usuario'].getError('required') && formulario.touched">
                     El campo es requerido
                 </span>
+                <span *ngIf="formulario.controls['usuario'].getError('minlength') && formulario.touched">
+                    El usuario debe tener al menos 5 caracteres 
+                </span>
             </div>
         </div>
         

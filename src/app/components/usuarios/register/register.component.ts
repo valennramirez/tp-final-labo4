@@ -28,9 +28,9 @@ export class RegisterComponent implements OnInit{
       id: [0, (Validators.required)], 
       cumpleaños: [new Date(), (Validators.required)], 
       genero:['', (Validators.required)],
-      listaVer: [], 
-      listaVistos:[], 
-      fotoPerfil: ''
+      listaVer:[[]], 
+      listaVistos:[[]], 
+      fotoPerfil: ['https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png']
     }); 
 
     console.log(this.formulario.get('genero')!.value); 
@@ -61,6 +61,6 @@ export class RegisterComponent implements OnInit{
           }
         }
       )
-  }
+      }
 
 }

@@ -4,12 +4,27 @@ html{
     color: rgb(141, 144, 238); 
     
 }
+*{
+    margin: 10px;
+}
 .navegacion{
     background-color:  rgb(37, 37, 65);
     justify-content: right;
     display: flex;
     margin: .5 rem; 
 }
+
+:root{
+    --violeta: rgb(15, 18, 100);
+    --lavanda: rgb(100, 102, 163);
+    --degradado: linear-gradient(90deg, var(--lavanda), var(--violeta), rgb(0, 0, 0,  .100));
+    --degradadoInv: linear-gradient(90deg, var(--violeta), var(--lavanda), rgb(0, 0, 0,  .100));
+    --degradadoBtn: linear-gradient(90deg, #880039de, #410920de);
+
+
+
+}
+
 
 p, 
 h1, 
@@ -19,6 +34,8 @@ h4,
 text,
 label,
 a, 
+input,
+button,
 legend
 {
     font-family: 'Poppins', sans-serif;

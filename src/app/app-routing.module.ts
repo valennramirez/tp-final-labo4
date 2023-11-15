@@ -16,6 +16,7 @@ import { AutGuard } from './guards/aut-guard';
 import { LoginGuard } from './guards/login-guard';
 import { PrivatePageComponent } from './pages/private-page/private-page.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { ListarPeliculasComponent } from './components/listas/listar-peliculas/listar-peliculas.component';
 
 
 
@@ -26,9 +27,10 @@ const routes: Routes = [
   {path:'pelicula/:id', component:VisualizarInfoPeliculaComponent},
   {path:'perfil/:id', component:VisualizarMiUsuarioComponent, canActivate: [AutGuard]},
   {path:'busqueda/:ingreso', component:VisualizarResultadoBusquedaComponent}, 
+  {path:'lista/:op', component:ListarPeliculasComponent}
 
 
-  {path: 'login', component: LoginPageComponent, canActivate:[LoginGuard]},
+  ,{path: 'login', component: LoginPageComponent, canActivate:[LoginGuard]},
   {path:'private', component:PrivatePageComponent, canActivate: [AutGuard]}
 
   ,{path: '**', redirectTo:'home'}

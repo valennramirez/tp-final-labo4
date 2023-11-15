@@ -2,18 +2,18 @@
 <app-buscador></app-buscador>
 <div class="filtros" [formGroup]="formulario">
 
-    <select name="dob-año" class="año" formControlName="año">
-        <option value="2011">2023</option>
-        <option value="2010">2022</option>
-        <option value="2009">2021</option>
-        <option value="2008">2020</option>
-        <option value="2007">2019</option>
-        <option value="2006">2018</option>
-        <option value="2005">2017</option>
-        <option value="2004">2016</option>
-        <option value="2003">2015</option>
-        <option value="2002">2014</option>
-        <option value="2001">2013</option>
+    <select name="dob-año" class="año" formControlName="anio">
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+        <option value="2017">2017</option>
+        <option value="2016">2016</option>
+        <option value="2015">2015</option>
+        <option value="2014">2014</option>
+        <option value="2013">2013</option>
         <option value="2012">2012</option>
         <option value="2011">2011</option>
         <option value="2010">2010</option>
@@ -129,15 +129,15 @@
         <option value="1900">1900</option>
     </select>
 
-    <input type="submit" value="agregar filtro" (click)="filtrarAnio(this.formulario.get('año')!.value)">
+    <input type="submit" value="Agregar filtro" (click)="filtrarAnio(this.formulario.get('anio')?.value)">
 
 </div>
 <section class="resultado">
+    <h2>Resultados</h2>
     <div class="contenedor">
-        <h2>Resultados</h2>
         <div *ngFor="let item of listadoBusqueda.results" class="pelicula">
-            <h4 id="titulo">{{item.title}}</h4>
-            <img id="poster" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+            <h4 class="titulo">{{item.title}}</h4>
+            <img class="poster" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
         </div>
     </div>
 </section>  

@@ -22,9 +22,11 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
 
     this.getIngreso(); 
     this.setPelicula(); 
+    this.setSimilares(); 
   }
  
   pelicula:any; 
+  listadoSimilares: any =[]; 
 
   id:string=''; 
 
@@ -58,8 +60,6 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
   }
 
   setPelicula(){
-    
-
     console.log(this.id);
         this.peliculaService.getPelicula_PorIdHttp(this.id).subscribe({
           next: (peli) => {
@@ -70,7 +70,19 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
             console.log(err); 
           }
         })
-  
+  }
+
+  setSimilares()
+  {
+    this.peliculaService.getPeliculas_SimilaresHttp(this.id).subscribe({
+      next: (peli) => {
+        this.listadoSimilares= peli; 
+        console.log(this.listadoSimilares); 
+      }, 
+      error: (err)=>{
+        console.log(err); 
+      }
+    })
   }
 
 
@@ -132,7 +144,9 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
   guardar()
   {
      const peli: Peliculas={
-      id: this.id
+      id: this.id, 
+      poster_path:this.pelicula.poster_path, 
+      title:this.pelicula.title
     }
 
     this.user.listaVer.push(peli); 
@@ -144,7 +158,8 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
     this.guardar(); 
     this.userService.putUsuarioHttp(this.user!).subscribe({
       next: (pe) => {
-        alert(pe + "guardada con exito");  
+        alert( "Pelicula guardada con exito");  
+        console.log(pe); 
       }, 
       error: (err)=>{
         console.log(err); 
