@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
 import { AutService } from 'src/app/services/user/aut.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor (private formBuilder: FormBuilder, 
     private autService: AutService, 
+    private userService: UserService,
     private route: Router
    ) 
     {} 
@@ -22,12 +24,7 @@ export class LoginComponent implements OnInit {
     this.initLogin(); 
   }
 
-  public usuarioDatos={
-    usuario: '', 
-    contraseña: ''
-  }
-
-  user: User | undefined; 
+  user!: User; 
   formulario!: FormGroup; 
   listadoUsuarios: User[]| any=[]; 
 
@@ -40,6 +37,30 @@ export class LoginComponent implements OnInit {
 
   iniciarSesion ()
   {
-    this.autService.verificarUsuarioContraseña(this.formulario.get('usuario')?.value, this.formulario.get('contraseña')?.value);
+    const user=this.autService.verificarUsuarioContraseña(this.formulario.get('usuario')?.value, this.formulario.get('contraseña')?.value); 
+    
+    if(!user)
+    {
+      alert('Usuario o contraseña incorrectos.'); 
+    }
+  }
+
+  /*validarUsuario(field:string)
+  {
+    this.userService.verificarUsuario(field).subscribe( u =>{
+      this.user=u; 
+    })
+    return this.user && this.formulario.controls[field].touched;
+  }
+
+  validarContrasena(field:string)
+  {
+    return this.userService.verificarContraseña(this.user.usuario, field) && this.formulario.controls[field].touched;
+  }*/
+
+  validar(field: string, error: string){
+    return this.formulario.controls[field].getError(error)
+    &&
+    this.formulario.controls[field].touched;
   }
 }

@@ -13,16 +13,7 @@ export class EditarClientesComponent implements OnInit{
 
   user! :User; 
   
-    public formulario: FormGroup=this.formBuilder.group({
-      gmail:['', (Validators.required, Validators.email)], 
-      usuario:['', (Validators.required, Validators.minLength(5))], 
-      nombre: ['', (Validators.required)], 
-      apellido:['', (Validators.required)], 
-      contraseña:['', (Validators.required, Validators.minLength(5))],
-      id: [0, (Validators.required)], 
-      cumpleaños: [new Date(), (Validators.required)], 
-      genero:['', (Validators.required)]
-    }); 
+  formulario!:FormGroup; 
   
 
   constructor (private formBuilder: FormBuilder, 
@@ -36,32 +27,25 @@ export class EditarClientesComponent implements OnInit{
      this.initEditar(); 
   }
 
-  initEditar(){
-    this.router.params.subscribe((async param =>{
-      
-      const id=+param['id']; 
-
-      this.getUsuario(id); 
-
-      this.formulario=this.formBuilder.group({
-        gmail: [this.user.gmail],
-        usuario:[this.user.usuario],
-        nombre: [this.user.nombre],
-        apellido:[this.user.apellido],
-        contraseña:[this.user.contraseña],
-        id:[this.user.id],
-        cumpleaños: [this.user.cumpleaños],
-        genero:[this.user.genero]
-      })
-
-    }))
-  }
-
-  async getUsuario(id: number)
+  getUsuario(id: number)
   {
     this.userService.getUsuarioHttp(id).subscribe({
       next: (us) =>{
         this.user = us; 
+        
+        this.formulario=this.formBuilder.group({
+          gmail: [this.user.gmail],
+          usuario:[this.user.usuario],
+          nombre: [this.user.nombre],
+          apellido:[this.user.apellido],
+          contraseña:[this.user.contraseña],
+          id:[this.user.id],
+          cumpleaños: [this.user.cumpleaños],
+          genero:[this.user.genero], 
+          listaVer:[this.user.listaVer], 
+          listaVistos:[this.user.listaVistos], 
+          fotoPerfil:[this.user.fotoPerfil]
+        })
       },
       error: (err) =>{
         console.log(err); 
@@ -69,18 +53,44 @@ export class EditarClientesComponent implements OnInit{
     })
   }
 
+  initEditar(){
 
-  async editarUsuario(){
+    this.formulario=this.formBuilder.group({
+      gmail:['', (Validators.required, Validators.email)], 
+      usuario:['', (Validators.required, Validators.minLength(5))], 
+      nombre: ['', (Validators.required)], 
+      apellido:['', (Validators.required)], 
+      contraseña:['', (Validators.required, Validators.minLength(5))],
+      id: [0, (Validators.required)], 
+      cumpleaños: [new Date(), (Validators.required)], 
+      genero:['', (Validators.required)],
+      listaVer:[[]], 
+      listaVistos:[[]], 
+      fotoPerfil: ['https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png']
+    }); 
+    
+    this.router.params.subscribe((async param =>{
+      
+      const id=+param['id']; 
+
+      this.getUsuario(id); 
+
+      console.log(this.user); 
+
+    }))
+  }
+
+
+  editarUsuario(){
     if(this.formulario.invalid) 
       return; 
 
-      this.user=this.formulario.value; 
+   console.log(this.user);
     
-
-   this.userService.putUsuarioHttp(this.user).subscribe({
+   this.userService.putUsuarioHttp(this.formulario.value).subscribe({
     next: (us) =>{
       alert("Usuario editado con exito"); 
-      this.route.navigate(['home']); 
+      this.route.navigate(['/perfil, this.user.id']); 
     }, 
     error: (err)=>{
       console.log(err); 

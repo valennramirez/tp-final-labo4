@@ -13,7 +13,6 @@ import { RegisterPagesComponent } from './pages/register-pages/register-pages.co
 import { ListarUsuariosComponent } from './components/usuarios/listar-usuarios/listar-usuarios/listar-usuarios.component';
 import { EditarClientesComponent } from './components/usuarios/editar-clientes/editar-clientes/editar-clientes.component';
 import { EditarPageComponent } from './pages/editar-page/editar-page.component';
-import { EditarListasComponent } from './components/listas/editar-listas/editar-listas.component';
 import { PerfilUsuarioPageComponent } from './pages/perfil-usuario-page/perfil-usuario-page.component';
 import { ListasPageComponent } from './pages/listas-page/listas-page.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -41,7 +40,6 @@ import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.compo
     ListarUsuariosComponent,
     EditarClientesComponent,
     EditarPageComponent,
-    EditarListasComponent,
     PerfilUsuarioPageComponent,
     ListasPageComponent,
     SidebarComponent,

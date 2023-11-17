@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Peliculas } from 'src/app/interfaces/peliculas';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user/user.service';
@@ -43,7 +44,6 @@ export class RegisterComponent implements OnInit{
                {} 
 
   user?: User | undefined; 
-  
 
   guardarUsuario(){ 
     
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit{
     this.UserService.postUsuarioHttp(this.formulario.value)
       .subscribe(
         {
-          next:(us) => {
+          next:(us) => { 
             alert(`Usuario: ${us.usuario}`);
             this.router.navigate(['/private'])
           },
@@ -61,6 +61,22 @@ export class RegisterComponent implements OnInit{
           }
         }
       )
-      }
+  }
+
+  validar(field: string, error: string){
+    return this.formulario.controls[field].getError(error)
+    &&
+    this.formulario.controls[field].touched;
+  }
+
+  validarUser(field: string)
+  {
+    return this.UserService.getUsuarioUserHttp(field) && this.formulario.controls[field].touched;
+  }
+
+  validarGmail(field: string)
+  {
+    return this.UserService.getUsuarioGmailHttp(field) && this.formulario.controls[field].touched;
+  }
 
 }

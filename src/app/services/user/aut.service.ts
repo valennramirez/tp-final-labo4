@@ -27,11 +27,11 @@ export class AutService {
     return this.http.get<User[]>(this.url); 
   }
 
-  verificarUsuarioContraseña (us: string, con:string)
+  verificarUsuarioContraseña (us: string, con: string)
   {
-    this.getUsuariosHttp().subscribe(usuarios =>{
-      usuarios.find( u =>{
-        if(u.usuario == us && u.contraseña == con)
+    return this.getUsuariosHttp().subscribe(usuarios =>{
+      usuarios.find(u =>{
+        if(u.usuario == us && u.contraseña==con)
         {
           this.user= u; 
           localStorage.setItem('token', u.id.toString()); 
@@ -39,6 +39,7 @@ export class AutService {
         }
       });
     });
+
   }
 
     checkEstatusAutenticacion(): Observable <boolean>

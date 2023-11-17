@@ -2,8 +2,6 @@
 .navegacion{
     display: flex;
     justify-content:end;
-    margin: .5rem;
-    padding:0%
 }
 
 .navegacion a{
@@ -12,7 +10,13 @@
     color: rgb(101, 117, 238);
 }
 
+header .tit{
+    margin-right: 58rem;
+    
+    color:#880039de; 
+}
 
-
-
+header .tit span {
+    color: white;
+}
 

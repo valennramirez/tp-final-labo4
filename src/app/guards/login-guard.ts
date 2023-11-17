@@ -16,5 +16,4 @@ function checkEstatusAutenticacion (): boolean | Observable<boolean>
 }
 export const LoginGuard =()=>{
     return checkEstatusAutenticacion(); 
-
 }

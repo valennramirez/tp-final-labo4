@@ -9,44 +9,19 @@
       "id": 1,
       "cumpleaños": "2023-11-02",
       "genero": "femenino",
-      "listaVer": [
+      "listaVer": [],
+      "listaVistos": [
         {
-          "id": "238",
-          "poster_path": "/ApiEfzSkrqS4m1L5a2GwWXzIiAs.jpg",
-          "title": "El padrino"
+          "id": "507089",
+          "poster_path": "/t6RSJ1z8bDEYpk4fLwxfkXciUak.jpg",
+          "title": "Five Nights at Freddy's"
         },
         {
-          "id": "872585",
-          "poster_path": "/ncKCQVXgk4BcQV6XbvesgZ2zLvZ.jpg",
-          "title": "Oppenheimer"
-        },
-        {
-          "id": "447277",
-          "poster_path": "/mdszPVnIY7cWgbgJ8zbwu1PiU5V.jpg",
-          "title": "La sirenita"
-        },
-        {
-          "id": "9381",
-          "poster_path": "/3IBB0Z2dZAWZNkRq6hF9pJsmMtE.jpg",
-          "title": "Babylon A.D."
-        },
-        {
-          "id": "80271",
-          "poster_path": "/9i1NeeYzI3ZrGbFDZ2MwDd80G6b.jpg",
-          "title": "LOL"
-        },
-        {
-          "id": "240",
-          "poster_path": "/mbry0W5PRylSUHsYzdiY2FSJwze.jpg",
-          "title": "El padrino. Parte II"
-        },
-        {
-          "id": "80271",
-          "poster_path": "/9i1NeeYzI3ZrGbFDZ2MwDd80G6b.jpg",
-          "title": "LOL"
+          "id": "424",
+          "poster_path": "/3Ho0pXsnMxpGJWqdOi0KDNdaTkT.jpg",
+          "title": "La lista de Schindler"
         }
       ],
-      "listaVistos": [],
       "fotoPerfil": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png"
     },
     {

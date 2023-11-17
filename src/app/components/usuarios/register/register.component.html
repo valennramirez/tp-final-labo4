@@ -19,11 +19,14 @@
                    > 
 
             <div class="error">
-                <span *ngIf="formulario.controls['gmail'].getError('required') && formulario.touched">
+                <span *ngIf="validar('gmail', 'required')">
                     El campo es requerido
                 </span>
-                <span *ngIf="formulario.controls['gmail'].getError('email') && formulario.touched">
+                <span *ngIf="validar('gmail', 'email')">
                     Debe ingresar un gmail
+                </span>
+                <span *ngIf="validarGmail('gmail')">
+                    El gmail ingresado ya tiene una cuenta
                 </span>
             </div>
         </div>
@@ -42,11 +45,14 @@
                    required
                    >
             <div class="error">
-                <span *ngIf="formulario.controls['usuario'].getError('required') && formulario.touched">
+                <span *ngIf="validar('usuario', 'required')">
                     El campo es requerido
                 </span>
-                <span *ngIf="formulario.controls['usuario'].getError('minlength') && formulario.touched">
+                <span *ngIf="validar('usuario', 'minlength')">
                     El usuario debe tener al menos 5 caracteres 
+                </span>
+                <span *ngIf="validarUser('usuario')">
+                    El usuario ya existe
                 </span>
             </div>
         </div>
@@ -65,7 +71,7 @@
                    required
                    >
             <div class="error">
-                <span *ngIf="formulario.controls['nombre'].getError('required') && formulario.touched">
+                <span *ngIf="validar('nombre', 'required')">
                     El campo es requerido
                 </span>
             </div>
@@ -83,7 +89,7 @@
                    required
                    >
             <div class="error">
-                <span *ngIf="formulario.controls['apellido'].getError('required') && formulario.touched">
+                <span *ngIf="validar('apellido', 'required')">
                     El campo es requerido
                 </span>
             </div>
@@ -101,10 +107,10 @@
                    required
                    > 
             <div class="error">
-                <span *ngIf="formulario.controls['contraseña'].getError('required') && formulario.touched">
+                <span *ngIf="validar('contraseña', 'required')">
                     El campo es requerido
                 </span>
-                <span *ngIf="formulario.controls['contraseña'].getError('minlength') && formulario.touched">
+                <span *ngIf="validar('contraseña', 'minlength')">
                     La contraseña debe tener al menos 5 caracteres 
                 </span>
             </div>
@@ -120,7 +126,7 @@
                    required
                    > 
             <div class="error">
-                <span *ngIf="formulario.controls['cumpleaños'].getError('required') && formulario.touched">
+                <span *ngIf="validar('cumpleaños', 'required')">
                     El campo es requerido
                 </span>
             </div>

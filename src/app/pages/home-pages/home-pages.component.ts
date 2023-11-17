@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AutService } from 'src/app/services/user/aut.service';
 
 @Component({
   selector: 'app-home-pages',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-pages.component.css']
 })
 export class HomePagesComponent {
-
+constructor (private autService: AutService) {}
 }

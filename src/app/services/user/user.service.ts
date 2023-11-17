@@ -26,6 +26,26 @@ export class UserService {
     return this.http.get<User>(`${this.url}/${id}`); 
   }
 
+  getUsuarioUserHttp (user: string): Observable<User>
+  {
+    return this.http.get<User>(`${this.url}?usuario=${user}`);
+  }
+
+  getUsuarioGmailHttp (gmail: string): Observable<User>
+  {
+    return this.http.get<User>(`${this.url}?gmail=${gmail}`);
+  }
+
+  verificarUsuario(usuario:string): Observable<User>
+  {
+    return this.http.get<User>(`${this.url}?usuario=${usuario}`);
+  }
+
+  verificarContraseña(usuario:string, con:string): Observable<User>
+  {
+    return this.http.get<User>(`${this.url}?usuario=${usuario}&contraseña=${con}`); 
+  }
+
   deleteUsuarioHttp(id: number): Observable<User>
   {
     return this.http.delete<User>(`${this.url}/${id}`); 

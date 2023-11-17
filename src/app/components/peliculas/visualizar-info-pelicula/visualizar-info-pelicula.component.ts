@@ -141,30 +141,136 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
       ratings!.textContent=this.pelicula.vote_average + ' / 10';
   }
 
-  guardar()
+
+
+
+  //Manejo listas
+
+  setPeliLista()
   {
-     const peli: Peliculas={
+   const peli: Peliculas={
       id: this.id, 
       poster_path:this.pelicula.poster_path, 
       title:this.pelicula.title
-    }
+    } 
 
-    this.user.listaVer.push(peli); 
-    
+    return peli; 
   }
 
-  guardarEnLista(){
+  buscarEnListaVer()
+  {
+    return this.user.listaVer.find((e => 
+      {
+        return e.id == this.pelicula.id; 
+      }))
+  }
+
+  guardarEnListaVer()
+  {
+    const p=this.setPeliLista(); 
+
+    this.user.listaVer.push(p);
     
-    this.guardar(); 
     this.userService.putUsuarioHttp(this.user!).subscribe({
       next: (pe) => {
         alert( "Pelicula guardada con exito");  
         console.log(pe); 
       }, 
       error: (err)=>{
+        alert( "No se pudo agregar la pelicula"); 
         console.log(err); 
       }
-    })
+    });
+
+    if(this.buscarEnListaVistos())
+    {
+      this.eliminarPeliculaListaVistos(); 
+    }
+    
+  }
+
+  buscarIndiceListaVer()
+  {
+    const p: Peliculas=this.setPeliLista(); 
+
+    return this.user.listaVer.indexOf(p);  
+  }
+
+  eliminarPeliculaListaVer()
+  {
+    const i=this.buscarIndiceListaVer(); 
+
+    this.user.listaVer.splice(i, 1); 
+
+    this.userService.putUsuarioHttp(this.user!).subscribe({
+      next: (pe) => {
+        alert( "Pelicula eliminada con exito");  
+        console.log(pe); 
+      }, 
+      error: (err)=>{
+        alert( "No se pudo eliminar la pelicula"); 
+        console.log(err); 
+      }
+    });
+  }
+
+
+  buscarEnListaVistos()
+  {
+    return this.user.listaVistos.find((e => 
+      {
+        return e.id == this.pelicula.id; 
+      }))
+  }
+
+  guardarEnListaVistos()
+  {
+    const p= this.setPeliLista(); 
+
+    this.user.listaVistos.push(p);
+
+    this.userService.putUsuarioHttp(this.user!).subscribe({
+      next: (pe) => {
+        alert( "Pelicula guardada con exito");  
+        console.log(pe); 
+      }, 
+      error: (err)=>{
+        alert( "No se pudo agregar la pelicula"); 
+        console.log(err); 
+      }
+    }); 
+
+    
+    if(this.buscarEnListaVer())
+    {
+      this.eliminarPeliculaListaVer(); 
+    }
+    
+  }
+
+  buscarIndiceListaVistos()
+  {
+    const p: Peliculas=this.setPeliLista(); 
+
+    return this.user.listaVistos.indexOf(p);  
+  }
+
+  eliminarPeliculaListaVistos()
+  {
+    const i=this.buscarIndiceListaVer(); 
+
+    this.user.listaVistos.splice(i, 1); 
+
+    this.userService.putUsuarioHttp(this.user!).subscribe({
+      next: (pe) => {
+        alert( "Pelicula eliminada con exito");  
+        console.log(pe); 
+      }, 
+      error: (err)=>{
+        alert( "No se pudo eliminar la pelicula"); 
+        console.log(err); 
+      }
+    });
   }
   
 }

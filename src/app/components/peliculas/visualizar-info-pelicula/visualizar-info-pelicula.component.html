@@ -1,3 +1,4 @@
+<app-navbar-private></app-navbar-private>
 <section class="visualizar-informacion">
     <div class="datos-pelicula" >
 
@@ -11,9 +12,24 @@
                 <h3 id="ratings"></h3>
                 <p id="sinopsis"></p>
 
-                <div class="boton-lista" >
-                    <button id="boton-lista" (click)="guardarEnLista()">+Lista Ver</button>
+                <div *ngIf="user">
+                    <div class="boton-lista" *ngIf="!buscarEnListaVer()">
+                        <button id="boton-lista" (click)="guardarEnListaVer()">+Lista Ver</button>
+                    </div>
+    
+                    <div class="boton-lista" *ngIf="buscarEnListaVer()">
+                        <button id="boton-lista" (click)="eliminarPeliculaListaVer()">+Eliminar Ver</button>
+                    </div>
+
+                    <div class="boton-lista" *ngIf="!buscarEnListaVistos()">
+                        <button id="boton-lista" (click)="guardarEnListaVistos()">+Lista Vistos</button>
+                    </div>
+    
+                    <div class="boton-lista" *ngIf="buscarEnListaVistos()">
+                        <button id="boton-lista" (click)="eliminarPeliculaListaVistos()">+Eliminar Vistos</button>
+                    </div>
                 </div>
+
             </div>
         </div>
     
@@ -46,10 +62,7 @@
 
         </div>
         
-    
-        <div class="trailer">
-            <button>Trailer</button>
-        </div>
+
     </div>
 </section>
 
