@@ -56,7 +56,7 @@ export class InicioComponent implements OnInit {
   listadoHorror:any=[]; 
   listadoFamiliar:any=[];
   listadoThriller:any=[];
-  listadoAdventura:any=[];
+  listadoAventura:any=[];
   listadoCrimen:any=[];
   listadoDocumental:any=[];
   listadoAnimacion:any=[]; 
@@ -65,7 +65,7 @@ export class InicioComponent implements OnInit {
   //agregar las listas de peliculas que devuelve cada get del service 
   setListados(){
 
-    this.peliculaService.getPeliculas_GeneroAccionHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(28, 1).subscribe({
       next: (pe) => {
         this.listadoAccion= pe; 
       }, 
@@ -74,7 +74,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroRomanceHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(10749, 1).subscribe({
       next: (pe) => {
         this.listadoRomance= pe; 
       }, 
@@ -83,7 +83,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroCienciaFiccionHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(878, 1).subscribe({
       next: (pe) => {
         this.listadoCienciaFiccion= pe; 
       }, 
@@ -92,7 +92,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroDramaHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(18, 1).subscribe({
       next: (pe) => {
         this.listadoDrama= pe; 
       }, 
@@ -101,7 +101,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroMisterioHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(9648, 1).subscribe({
       next: (pe) => {
         this.listadoMisterio= pe; 
       }, 
@@ -110,7 +110,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroComediaHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(35, 1).subscribe({
       next: (pe) => {
         this.listadoComedia= pe; 
       }, 
@@ -119,7 +119,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroFantasiaHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(14, 1).subscribe({
       next: (pe) => {
         this.listadoFantasia= pe; 
       }, 
@@ -128,7 +128,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroHorrorHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(27, 1).subscribe({
       next: (pe) => {
         this.listadoHorror= pe; 
       }, 
@@ -137,7 +137,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroFamiliarHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(10751, 1).subscribe({
       next: (pe) => {
         this.listadoFamiliar= pe; 
       }, 
@@ -146,7 +146,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroThrillerHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(53, 1).subscribe({
       next: (pe) => {
         this.listadoThriller= pe; 
       }, 
@@ -155,16 +155,16 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroAdventuraHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(12, 1).subscribe({
       next: (pe) => {
-        this.listadoAdventura= pe; 
+        this.listadoAventura= pe; 
       }, 
       error: (err)=>{
         console.log(err); 
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroCrimenHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(80, 1).subscribe({
       next: (pe) => {
         this.listadoCrimen= pe; 
       }, 
@@ -173,7 +173,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroDocumentalHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(99, 1).subscribe({
       next: (pe) => {
         this.listadoDocumental= pe; 
       }, 
@@ -182,7 +182,7 @@ export class InicioComponent implements OnInit {
       }
     })
 
-    this.peliculaService.getPeliculas_GeneroAnimacionHttp().subscribe({
+    this.peliculaService.getPeliculas_GeneroHttp(16, 1).subscribe({
       next: (pe) => {
         this.listadoAnimacion= pe; 
       }, 

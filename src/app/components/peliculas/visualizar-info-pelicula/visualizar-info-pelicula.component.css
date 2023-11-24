@@ -67,7 +67,7 @@ button{
     background-color: rgba(12, 23, 62, 0.64) ;
     color: grey;
     border-radius: 1rem;
-    border-color: rgb(0, 21, 255);
+    border-color: rgb(164, 32, 212);
 }
 
 
@@ -100,12 +100,10 @@ h2{
 
 .contenedor {
 	width: 90%;
-	max-width: 1000px;
-	margin: 40px auto 100px auto;
-
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 40px;
+    margin: auto; 
+	grid-template-columns: repeat(5, 1fr);
+	gap: 30px;
 }
 
 .posterSim{

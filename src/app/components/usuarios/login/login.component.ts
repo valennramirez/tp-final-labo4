@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
 import { AutService } from 'src/app/services/user/aut.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
     this.initLogin(); 
   }
 
-  user!: User; 
+  user!: User | undefined; 
+  flag!:boolean | Observable<boolean>; 
   formulario!: FormGroup; 
   listadoUsuarios: User[]| any=[]; 
 
@@ -35,13 +36,21 @@ export class LoginComponent implements OnInit {
     }); 
   }
 
+  get currentUser ()
+  {
+    return this.autService.currentUser; 
+  }
+
   iniciarSesion ()
   {
-    const user=this.autService.verificarUsuarioContraseña(this.formulario.get('usuario')?.value, this.formulario.get('contraseña')?.value); 
+    const u=this.autService.verificarUsuarioContraseña(this.formulario.get('usuario')?.value, this.formulario.get('contraseña')?.value); 
     
-    if(!user)
+    console.log(this.currentUser); 
+
+    if(this.user == undefined)
     {
       alert('Usuario o contraseña incorrectos.'); 
+      console.log('i ')
     }
   }
 

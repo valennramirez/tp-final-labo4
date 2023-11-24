@@ -9,16 +9,17 @@
       "id": 1,
       "cumpleaños": "2023-11-02",
       "genero": "femenino",
-      "listaVer": [],
-      "listaVistos": [
+      "listaVer": [
         {
           "id": "507089",
           "poster_path": "/t6RSJ1z8bDEYpk4fLwxfkXciUak.jpg",
           "title": "Five Nights at Freddy's"
-        },
+        }
+      ],
+      "listaVistos": [
         {
           "id": "424",
-          "poster_path": "/3Ho0pXsnMxpGJWqdOi0KDNdaTkT.jpg",
+          "poster_path": "/xnvHaMFNXzemoH4uXHDMtKnpF7l.jpg",
           "title": "La lista de Schindler"
         }
       ],
@@ -84,6 +85,19 @@
           "title": "La saga Crepúsculo:  Amanecer - Parte 1"
         }
       ],
+      "listaVistos": [],
+      "fotoPerfil": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png"
+    },
+    {
+      "gmail": "ramirez@gmail.com",
+      "usuario": "valen33333333333",
+      "nombre": "Valentina",
+      "apellido": "ss",
+      "contraseña": "aaaaaaaaaaaaa",
+      "id": 6,
+      "cumpleaños": "2023-11-14",
+      "genero": "otro",
+      "listaVer": [],
       "listaVistos": [],
       "fotoPerfil": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png"
     }

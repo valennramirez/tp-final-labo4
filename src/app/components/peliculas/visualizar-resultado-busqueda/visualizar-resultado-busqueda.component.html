@@ -1,5 +1,3 @@
-<app-navbar></app-navbar>
-<app-buscador></app-buscador>
 <div class="filtros" [formGroup]="formulario">
 
     <select name="dob-año" class="año" formControlName="anio">
@@ -136,8 +134,17 @@
     <h2>Resultados</h2>
     <div class="contenedor">
         <div *ngFor="let item of listadoBusqueda.results" class="pelicula">
-            <h4 class="titulo">{{item.title}}</h4>
             <img class="poster" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
+            <h4 class="titulo">{{item.title}}</h4>
         </div>
     </div>
 </section>  
+
+<div class="anterior-siguiente">
+    <div class="b-anterior">
+        <button  *ngIf="this.pagina!=1" (click)="volverPagina()">Anterior</button>
+    </div>
+    <div class="b-siguiente">
+        <button  (click)="pasarPagina()">Siguiente</button>
+    </div>
+</div>

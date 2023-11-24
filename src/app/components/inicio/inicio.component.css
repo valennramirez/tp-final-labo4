@@ -30,6 +30,9 @@ h3{
   text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px #e995de , 0 0 22px #ff00de , 0 0 24px #ff00de ;
 }
 
+.slider-peliculas{
+    margin: 10px;
+}
 
 
 .portada{

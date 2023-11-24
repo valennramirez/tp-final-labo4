@@ -26,12 +26,12 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
   }
  
   pelicula:any; 
-  listadoSimilares: any =[]; 
+  listadoRecomendaciones: any =[]; 
 
   id:string=''; 
 
   user: User={
-    gmail: this.getUser?.gmail, 
+    gmail: this.getUser?.gmail,  
     usuario:this.getUser!.usuario, 
     nombre: this.getUser!.nombre, 
     apellido: this.getUser!.apellido, 
@@ -60,7 +60,6 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
   }
 
   setPelicula(){
-    console.log(this.id);
         this.peliculaService.getPelicula_PorIdHttp(this.id).subscribe({
           next: (peli) => {
             this.pelicula= peli; 
@@ -74,10 +73,10 @@ export class VisualizarInfoPeliculaComponent implements OnInit {
 
   setSimilares()
   {
-    this.peliculaService.getPeliculas_SimilaresHttp(this.id).subscribe({
+    this.peliculaService.getPeliculas_RecomendacionesHttp(this.id).subscribe({
       next: (peli) => {
-        this.listadoSimilares= peli; 
-        console.log(this.listadoSimilares); 
+        this.listadoRecomendaciones= peli; 
+        console.log(this.listadoRecomendaciones); 
       }, 
       error: (err)=>{
         console.log(err); 

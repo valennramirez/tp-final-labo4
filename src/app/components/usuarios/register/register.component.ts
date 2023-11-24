@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, tap } from 'rxjs';
 import { Peliculas } from 'src/app/interfaces/peliculas';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user/user.service';
@@ -17,11 +17,13 @@ export class RegisterComponent implements OnInit{
     this.initRegister();
   }
 
+  flagUser!:User; 
+
   formulario!:FormGroup; 
 
   initRegister() {
     this.formulario=this.formBuilder.group({
-      gmail:['', (Validators.required, Validators.email)], 
+      gmail:['', [Validators.required, Validators.email],[this.existeGmail.bind(this)], {updateOn: 'blur'}], 
       usuario:['', (Validators.required, Validators.minLength(5))], 
       nombre: ['', (Validators.required)], 
       apellido:['', (Validators.required)], 
@@ -34,11 +36,10 @@ export class RegisterComponent implements OnInit{
       fotoPerfil: ['https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kegich.svg/341px-Kegich.svg.png']
     }); 
 
-    console.log(this.formulario.get('genero')!.value); 
   }
 
   constructor (private formBuilder: FormBuilder, 
-               private UserService: UserService,
+               private userService: UserService,
                private router: Router
               ) 
                {} 
@@ -47,9 +48,9 @@ export class RegisterComponent implements OnInit{
 
   guardarUsuario(){ 
     
-    if(this.formulario.invalid) return
+    if(this.formulario.invalid) return;
 
-    this.UserService.postUsuarioHttp(this.formulario.value)
+    this.userService.postUsuarioHttp(this.formulario.value)
       .subscribe(
         {
           next:(us) => { 
@@ -69,14 +70,44 @@ export class RegisterComponent implements OnInit{
     this.formulario.controls[field].touched;
   }
 
-  validarUser(field: string)
+  validarGmail(field: string, error:string)
   {
-    return this.UserService.getUsuarioUserHttp(field) && this.formulario.controls[field].touched;
+     return this.formulario.controls[field].hasError(error) 
+     &&
+    this.formulario.controls[field].touched;
   }
 
+  existeGmail(control : AbstractControl)
+  {
+      return this.userService.getUsuarioGmailHttp(control.value)
+      .pipe (
+        tap((a) => {console.log(a)}),
+        map ((dat:any) =>
+        {
+          return (dat.Response == "true" ? null : {gmailExiste : true})
+      })); 
+  }
+  
+
+  
+
+
+  /*validarUser(field: string)
+  {
+    return this.userService.getUsuarioUserHttp(field)
+    .pipe(
+      map(estado => {return console.log(estado);})
+     )
+
+  }
+  
+/*
   validarGmail(field: string)
   {
-    return this.UserService.getUsuarioGmailHttp(field) && this.formulario.controls[field].touched;
-  }
+    return this.formulario.get(field)!.errors?.['gmailExiste']
+    &&
+    this.formulario.controls[field].touched;
+  }*/ 
+
 
 }

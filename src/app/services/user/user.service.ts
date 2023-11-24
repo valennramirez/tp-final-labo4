@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
 
 
@@ -31,9 +31,9 @@ export class UserService {
     return this.http.get<User>(`${this.url}?usuario=${user}`);
   }
 
-  getUsuarioGmailHttp (gmail: string): Observable<User>
+  getUsuarioGmailHttp (gmail: string): Observable<any>
   {
-    return this.http.get<User>(`${this.url}?gmail=${gmail}`);
+    return this.http.get<any>(`${this.url}?gmail=${gmail}`);
   }
 
   verificarUsuario(usuario:string): Observable<User>

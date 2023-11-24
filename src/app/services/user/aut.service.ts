@@ -14,12 +14,11 @@ export class AutService {
 
   private url: string = "http://localhost:4000/usuarios"; 
   
-  user?:User; 
+  user!:User; 
 
-  get currentUser(): User | undefined
+  get currentUser(): User 
   {
-    if (!this.user) return undefined
-    return structuredClone(this.user); 
+    return structuredClone(this.user!); 
   }
 
   getUsuariosHttp (): Observable<User[]>
@@ -27,9 +26,8 @@ export class AutService {
     return this.http.get<User[]>(this.url); 
   }
 
-  verificarUsuarioContraseña (us: string, con: string)
-  {
-    return this.getUsuariosHttp().subscribe(usuarios =>{
+  verificarUsuarioContraseña (us: string, con: string) 
+  {  this.getUsuariosHttp().subscribe(usuarios =>{
       usuarios.find(u =>{
         if(u.usuario == us && u.contraseña==con)
         {
@@ -39,7 +37,6 @@ export class AutService {
         }
       });
     });
-
   }
 
     checkEstatusAutenticacion(): Observable <boolean>
@@ -60,7 +57,7 @@ export class AutService {
 
     logOut()
     {
-      this.user=undefined; 
+      this.user!=undefined; 
       localStorage.clear(); 
     }
   }

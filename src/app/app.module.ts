@@ -14,7 +14,6 @@ import { ListarUsuariosComponent } from './components/usuarios/listar-usuarios/l
 import { EditarClientesComponent } from './components/usuarios/editar-clientes/editar-clientes/editar-clientes.component';
 import { EditarPageComponent } from './pages/editar-page/editar-page.component';
 import { PerfilUsuarioPageComponent } from './pages/perfil-usuario-page/perfil-usuario-page.component';
-import { ListasPageComponent } from './pages/listas-page/listas-page.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { VisualizarInfoPeliculaComponent } from './components/peliculas/visualizar-info-pelicula/visualizar-info-pelicula.component';
 import { VisualizarMiUsuarioComponent } from './components/usuarios/visualizar-mi-usuario/visualizar-mi-usuario.component';
@@ -28,6 +27,9 @@ import { PrivatePageComponent } from './pages/private-page/private-page.componen
 import { NavbarPrivateComponent } from './shared/navbar-private/navbar-private.component';
 import { BuscadorComponent } from './shared/buscador/buscador.component';
 import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.component';
+import { VisualizarPeliculasGeneroComponent } from './components/peliculas/visualizar-peliculas-genero/visualizar-peliculas-genero.component';
+import { VisualizarPorGeneroPageComponent } from './pages/visualizar-por-genero-page/visualizar-por-genero-page.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,6 @@ import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.compo
     EditarClientesComponent,
     EditarPageComponent,
     PerfilUsuarioPageComponent,
-    ListasPageComponent,
     SidebarComponent,
     VisualizarInfoPeliculaComponent,
     VisualizarMiUsuarioComponent,
@@ -52,7 +53,9 @@ import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.compo
     NavbarPrivateComponent,
     BuscadorComponent,
     BusquedaPageComponent, 
-    ListarPeliculasComponent
+    ListarPeliculasComponent, 
+    VisualizarPeliculasGeneroComponent, 
+    VisualizarPorGeneroPageComponent, FooterComponent 
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@
                 <h3 id="ratings"></h3>
                 <p id="sinopsis"></p>
 
-                <div *ngIf="user">
+                <div *ngIf="getUser">
                     <div class="boton-lista" *ngIf="!buscarEnListaVer()">
                         <button id="boton-lista" (click)="guardarEnListaVer()">+Lista Ver</button>
                     </div>
@@ -67,11 +67,11 @@
 </section>
 
 <section class="similares">
-    <h2>Similares</h2>
+    <h2>Recomendaciones</h2>
     <div class="contenedor" >
-        <div *ngFor="let item of listadoSimilares.results" class="peliculas">
+        <div *ngFor="let item of listadoRecomendaciones.results" class="peliculas">
             <img class="posterSim" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="" [routerLink]="['/pelicula', item.id]">
-        <h4 class="tituloSim">{{item.title}}</h4>
+            <h4 class="tituloSim">{{item.title}}</h4>
         </div>
         
     </div>

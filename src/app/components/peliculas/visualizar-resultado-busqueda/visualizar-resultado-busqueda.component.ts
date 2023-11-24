@@ -21,6 +21,7 @@ export class VisualizarResultadoBusquedaComponent implements OnInit{
   listadoBusqueda: any=[]; 
   ingreso:string=''; 
   año:string=''; 
+  pagina: number=1;  
 
   formulario!: FormGroup; 
 
@@ -40,9 +41,20 @@ export class VisualizarResultadoBusquedaComponent implements OnInit{
       })
   }
 
+  volverPagina()
+  {
+    this.pagina--; 
+    this.getResultadosBusqueda();
+  }
+  pasarPagina()
+  {
+    this.pagina++; 
+    this.getResultadosBusqueda();
+  }
+
   getResultadosBusqueda()
   {
-    this.peliculaService.getPeliculas_PorPalabraHttp(this.ingreso).subscribe({
+    this.peliculaService.getPeliculas_PorPalabraHttp(this.ingreso, this.pagina).subscribe({
       next: (pe) => {
         this.listadoBusqueda= pe; 
         console.log(this.listadoBusqueda);
@@ -66,15 +78,4 @@ export class VisualizarResultadoBusquedaComponent implements OnInit{
       }
     })
   }
-
-  /*filtrarGenero(genero: string)
-  {
-    for(let i=0; i<this.listadoResults.length; i++)
-    {
-      if(!this.listadoResults[i].genre_ids.contains(genero)){
-        this.listadoResults[i].splice(i, 1); 
-      }
-    }
-  }*/
- 
 }

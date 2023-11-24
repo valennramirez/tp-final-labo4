@@ -27,9 +27,9 @@ export class PeliculasService {
 
   //GET DE PELICULAS POR --id, palabra, titulo, similitud
 
-  getPeliculas_PorPalabraHttp (ingreso:string): Observable<any[]>
+  getPeliculas_PorPalabraHttp (ingreso:string, pag:number): Observable<any[]>
   {
-    return this.http.get<any[]>(`${this.urlSearchPelicula}${this.api_key}&query=${ingreso}`); 
+    return this.http.get<any[]>(`${this.urlSearchPelicula}${this.api_key}&query=${ingreso}&page=${pag}`); 
   }
 
   getPelicula_PorIdHttp (id:string) : Observable<any[]>
@@ -37,9 +37,9 @@ export class PeliculasService {
     return this.http.get<any[]>(`${this.urlBasePelicula}${id}${this.api_key}`);
   }
 
-  getPeliculas_SimilaresHttp (id:string): Observable<any[]>
+  getPeliculas_RecomendacionesHttp (id:string): Observable<any[]>
   {
-    return this.http.get<any[]>(`${this.urlBasePelicula}/${id}/similar${this.api_key}`); 
+    return this.http.get<any[]>(`${this.urlBasePelicula}/${id}/recommendations${this.api_key}`); 
   }
 
   getPeliculas_PorPalabrayAñoHttp (ingreso:string, año:string): Observable<any[]>
@@ -47,74 +47,9 @@ export class PeliculasService {
     return this.http.get<any[]>(`${this.urlSearchPelicula}${this.api_key}&query=${ingreso}&primary_release_year=${año}`); 
   }
   
-  getPeliculas_GeneroAccionHttp(): Observable<any[]>
+  getPeliculas_GeneroHttp(idGenero: number, pag:number): Observable<any[]>
   {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=28`); 
-  }
-
-  getPeliculas_GeneroComediaHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=16`); 
-  }
-
-  getPeliculas_GeneroRomanceHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=10749`); 
-  }
-
-  getPeliculas_GeneroDramaHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=18`); 
-  }
-
-  getPeliculas_GeneroHorrorHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=27`); 
-  }
-
-  getPeliculas_GeneroFantasiaHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=14`); 
-  }
-
-  getPeliculas_GeneroCienciaFiccionHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=878`); 
-  }
-
-  getPeliculas_GeneroMisterioHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=9648`); 
-  }
-
-  getPeliculas_GeneroAdventuraHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=12`); 
-  }
-
-  getPeliculas_GeneroCrimenHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=80`); 
-  }
-
-  getPeliculas_GeneroDocumentalHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=99`); 
-  }
-
-  getPeliculas_GeneroFamiliarHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=10751`); 
-  }
-
-  getPeliculas_GeneroThrillerHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=53`); 
-  }
-
-  getPeliculas_GeneroAnimacionHttp(): Observable<any[]>
-  {
-    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=16`); 
+    return this.http.get<any[]>(`${this.urlBase}/discover/movie${this.api_key}&with_genres=${idGenero}&page=${pag}`); 
   }
 
   //GET DE PELICULAS TRENDING DEL DIA/SEMANA
@@ -136,4 +71,10 @@ export class PeliculasService {
     return this.http.get<any[]>("https://api.themoviedb.org/3/movie/top_rated" + this.api_key); 
   }
 
+  //GET NOMBRE DE GENERO SEGUN ID 
+
+  getListaGeneros_Http(): Observable<any[]>
+  {
+    return this.http.get<any[]>(`${this.urlBase}/genre/movie/list${this.api_key}`); 
+  }
 }

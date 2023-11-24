@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AutService } from 'src/app/services/user/aut.service';
 
 @Component({
   selector: 'app-visualizar-info-pelicula-page',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./visualizar-info-pelicula-page.component.css']
 })
 export class VisualizarInfoPeliculaPageComponent {
+  constructor( private autService: AutService) { }
+
+  ngOnInit(): void {
+  }
+
+  get currentUser()
+  {
+    return this.autService.currentUser; 
+  }
 
 }

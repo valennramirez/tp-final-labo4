@@ -25,7 +25,7 @@
                 <span *ngIf="validar('gmail', 'email')">
                     Debe ingresar un gmail
                 </span>
-                <span *ngIf="validarGmail('gmail')">
+                <span *ngIf="existeGmail(formulario.controls['gmail'])">
                     El gmail ingresado ya tiene una cuenta
                 </span>
             </div>
@@ -51,7 +51,7 @@
                 <span *ngIf="validar('usuario', 'minlength')">
                     El usuario debe tener al menos 5 caracteres 
                 </span>
-                <span *ngIf="validarUser('usuario')">
+                <span *ngIf="">
                     El usuario ya existe
                 </span>
             </div>
