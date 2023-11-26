@@ -1,27 +1,50 @@
-# Peoycto
+/////////////////////
+## integrantes 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
+Valentina Ramirez - comision 3
+Malena Castro - comision 1
 
-## Development server
+## github 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+El repositorio: https://github.com/valennramirez/tp-final-labo4.git 
 
-## Code scaffolding
+## instalar libreria ngx-slick-carrousel 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Esta libreria se utiliza para que funcione el carrusel, se instala mediante 3 comandos, luego se cambia los scripts y styles del angular.json. 
 
-## Build
+https://www.npmjs.com/package/ngx-slick-carousel?activeTab=readme
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+//en caso de que no funcione, mande un zip que no tiene el carrousel, y solo muestra las primeras cinco peliculas que devuelve la api. 
 
-## Running unit tests
+## json de los usuarios
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+El json server lo utilizamos para manejar los usuarios, en una carpeta db adentro del src. 
 
-## Running end-to-end tests
+El comando: json-server .db/usuarios.json -p 4000 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## usuario ya ingresado 
 
-## Further help
+Para visualizar la informacion de las peliculas, se necesita ingresar con el usuario. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+En caso de querer ingresar directamente, hay un usuario ya creado previamente con peliculas guardadas en las listas: 
+
+user: valennramirez22
+contraseña: Valen345 
+
+## registrarse 
+
+En cuanto a las validaciones del registro, no pudimos lograr la de manejar usuarios y gmail repetidos, por lo cual te deja registrarte incluso si ya existe. 
+
+## lista de peliculas vistas y por ver 
+
+En el manejo de las listas, decidimos que una pelicula no pueda estar en las dos listas. O ya la viste, o la vas a ver. Por lo cual, al agregarla a una, se elimina automaticamente de la otra. 
+
+Para visualizar las listas, primero se ingresa a visualizar mi usuario, y ahi hay dos botones que te llevan a la lista elegida. 
+
+## buscar peliculas 
+
+Para buscar peliculas desde el inicio, al apretar buscar te lleva directamente a la pagina con los resultados de la busqueda. Pero al buscar desde alli, se tiene que renovar la pagina porque se queda estatica. 
+
+## visualizar las peliculas por genero  (agregado despues de la presentacion)
+
+Si se apreta sobre el nombre del genero en el inicio, te lleva a una pagina con peliculas de ese genero. El resultado esta dividido en paginas de 20, y se puede navegar entre las paginas. 
